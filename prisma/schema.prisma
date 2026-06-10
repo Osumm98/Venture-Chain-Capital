@@ -1,0 +1,310 @@
+// =============================================================================
+// Venture Chain Capital — Production Database Schema
+// =============================================================================
+// Translated from PRD Section 6 (PostgreSQL) into Prisma ORM.
+// All financial fields use Decimal — native floats are permanently banned.
+// =============================================================================
+
+generator client {
+  provider        = "prisma-client"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [pgcrypto]
+}
+
+// ---------------------------------------------------------------------------
+// ENUMS — mapped 1:1 from PRD CREATE TYPE statements
+// ---------------------------------------------------------------------------
+
+enum RoleType {
+  MEMBER
+  ADMIN_CRYPTO
+  ADMIN_STOCKS
+  ADMIN_COMMODITIES
+  ADMIN_FOREX
+  ADMIN_HEDGE
+  SUPER_ADMIN
+}
+
+enum TokenTier {
+  ENTRY
+  SILVER
+  GOLD
+  PLATINUM
+  DIAMOND
+  GROUP_1
+  GROUP_2
+  GROUP_3
+}
+
+enum TxType {
+  PAYMENT
+  PENALTY
+  CREDIT_APPLIED
+  ANNUAL_FEE
+  ADMIN_FEE
+  PROFIT_FEE
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  CLOSED
+}
+
+enum TokenStatus {
+  ACTIVE
+  REDEEMED
+  CANCELLED
+}
+
+// ---------------------------------------------------------------------------
+// USERS — Core identity table keyed by membership number
+// ---------------------------------------------------------------------------
+
+model User {
+  userId          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  membershipNo    String      @unique @db.VarChar(20) // e.g., BWG2020M00001
+  firstName       String      @db.VarChar(100)
+  lastName        String      @db.VarChar(100)
+  email           String?     @unique @db.VarChar(255)
+  passwordHash    String?     @db.Text
+  role            RoleType    @default(MEMBER)
+  joinDate        DateTime    @db.Date
+  allocatedShares Decimal?    @db.Decimal(10, 4)
+  status          UserStatus  @default(ACTIVE)
+  createdAt       DateTime    @default(now()) @db.Timestamptz()
+  updatedAt       DateTime    @updatedAt @db.Timestamptz()
+
+  // Relations
+  tokens          MemberToken[]
+  ledgerEntries   LedgerEntry[]
+  managedPortfolio Portfolio?   @relation("PortfolioHead")
+
+  @@index([role])
+  @@index([status])
+  @@map("users")
+}
+
+// ---------------------------------------------------------------------------
+// TOKEN PRICING HISTORY — Weekly/periodic valuation snapshots per tier
+// ---------------------------------------------------------------------------
+
+model TokenPricingHistory {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  dateEffective DateTime  @db.Date
+  tier          TokenTier
+  monthlySub    Decimal   @db.Decimal(10, 2)
+  adminFeePct   Decimal   @db.Decimal(5, 4)  // e.g., 0.0975 = 9.75%
+  profitFeePct  Decimal   @db.Decimal(5, 4)  // e.g., 0.0915 = 9.15%
+  cashoutValue  Decimal   @db.Decimal(18, 5) // e.g., 26773.90760
+  buyInPrice    Decimal   @db.Decimal(18, 5)
+
+  @@unique([dateEffective, tier])
+  @@index([tier])
+  @@index([dateEffective])
+  @@map("token_pricing_history")
+}
+
+// ---------------------------------------------------------------------------
+// MEMBER TOKENS — The Token Wallet. Each token is uniquely serialized.
+// ---------------------------------------------------------------------------
+
+model MemberToken {
+  tokenSerial  String      @id @db.VarChar(50) // e.g., VCC2026GT00004
+  membershipNo String      @db.VarChar(20)
+  tier         TokenTier
+  issueYear    Int
+  isCarryOver  Boolean     @default(false)
+  status       TokenStatus @default(ACTIVE)
+  issuedAt     DateTime    @default(now()) @db.Timestamptz()
+
+  // Relations
+  owner        User          @relation(fields: [membershipNo], references: [membershipNo], onDelete: Restrict, onUpdate: Cascade)
+  ledgerEntries LedgerEntry[]
+
+  @@index([membershipNo])
+  @@index([tier])
+  @@index([issueYear])
+  @@index([status])
+  @@map("member_tokens")
+}
+
+// ---------------------------------------------------------------------------
+// LEDGER — Double-entry financial transaction log. Immutable audit trail.
+// ---------------------------------------------------------------------------
+
+model LedgerEntry {
+  txId            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  membershipNo    String   @db.VarChar(20)
+  tokenSerial     String?  @db.VarChar(50)
+  txDate          DateTime @default(now()) @db.Timestamptz()
+  type            TxType
+  amount          Decimal  @db.Decimal(15, 2) // Positive = credit, Negative = debit
+  referenceNote   String?  @db.Text
+  balanceSnapshot Decimal? @db.Decimal(15, 2)
+
+  // Relations
+  user  User         @relation(fields: [membershipNo], references: [membershipNo], onDelete: Restrict, onUpdate: Cascade)
+  token MemberToken? @relation(fields: [tokenSerial], references: [tokenSerial], onDelete: SetNull, onUpdate: Cascade)
+
+  @@index([membershipNo])
+  @@index([tokenSerial])
+  @@index([txDate])
+  @@index([type])
+  @@index([membershipNo, txDate])
+  @@map("ledger")
+}
+
+// ---------------------------------------------------------------------------
+// PORTFOLIOS — Admin-managed asset class tracking
+// ---------------------------------------------------------------------------
+
+model Portfolio {
+  portfolioId          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  assetClass           String   @unique @db.VarChar(50) // CRYPTO, STOCKS, COMMODITIES, FOREX, HEDGE
+  headAdminId          String?  @unique @db.Uuid
+  totalAllocatedCapital Decimal? @db.Decimal(18, 2)
+  currentMarketValue   Decimal? @db.Decimal(18, 2)
+  lastUpdated          DateTime? @db.Timestamptz()
+  createdAt            DateTime @default(now()) @db.Timestamptz()
+
+  // Relations
+  headAdmin User? @relation("PortfolioHead", fields: [headAdminId], references: [userId], onDelete: SetNull, onUpdate: Cascade)
+
+  // Portfolio holdings (individual assets within a portfolio)
+  holdings  PortfolioHolding[]
+
+  @@map("portfolios")
+}
+
+// ---------------------------------------------------------------------------
+// PORTFOLIO HOLDINGS — Individual assets within each portfolio
+// PRD 5.2: "Holdings Grid: real-time breakdown of underlying equities held
+// (e.g., AAPL, TSLA), average buy price, current market price, unrealized PnL"
+// ---------------------------------------------------------------------------
+
+model PortfolioHolding {
+  holdingId       String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  portfolioId     String   @db.Uuid
+  ticker          String   @db.VarChar(20)  // e.g., AAPL, BTC, XAU
+  assetName       String   @db.VarChar(255) // e.g., Apple Inc., Bitcoin
+  quantity        Decimal  @db.Decimal(18, 8) // Supports fractional crypto quantities
+  avgBuyPrice     Decimal  @db.Decimal(18, 5)
+  currentPrice    Decimal? @db.Decimal(18, 5)
+  unrealizedPnl   Decimal? @db.Decimal(18, 2)
+  lastPriceUpdate DateTime? @db.Timestamptz()
+  createdAt       DateTime @default(now()) @db.Timestamptz()
+  updatedAt       DateTime @updatedAt @db.Timestamptz()
+
+  // Relations
+  portfolio Portfolio @relation(fields: [portfolioId], references: [portfolioId], onDelete: Cascade, onUpdate: Cascade)
+
+  @@unique([portfolioId, ticker])
+  @@index([portfolioId])
+  @@index([ticker])
+  @@map("portfolio_holdings")
+}
+
+// ---------------------------------------------------------------------------
+// WEEKLY PERFORMANCE LOG — Portfolio heads input weekly yield/growth metrics
+// PRD 5.2: "A secure module to input weekly yield/growth metrics"
+// ---------------------------------------------------------------------------
+
+model WeeklyPerformanceLog {
+  id              String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  portfolioId     String   @db.Uuid
+  weekStartDate   DateTime @db.Date
+  weekEndDate     DateTime @db.Date
+  yieldPercentage Decimal  @db.Decimal(8, 5) // e.g., 2.34500%
+  absoluteReturn  Decimal  @db.Decimal(18, 2)
+  submittedBy     String   @db.Uuid
+  submittedAt     DateTime @default(now()) @db.Timestamptz()
+  notes           String?  @db.Text
+
+  @@unique([portfolioId, weekStartDate])
+  @@index([portfolioId])
+  @@index([weekStartDate])
+  @@map("weekly_performance_log")
+}
+
+// ---------------------------------------------------------------------------
+// ANNUAL FEE TRACKING — Tracks the R15 annual fee per member per year
+// PRD 4.2: "A flat R15.00 fee is deducted from all active accounts annually"
+// ---------------------------------------------------------------------------
+
+model AnnualFeeRecord {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  membershipNo String   @db.VarChar(20)
+  feeYear      Int
+  amount       Decimal  @db.Decimal(10, 2) @default(15.00)
+  deductedAt   DateTime @default(now()) @db.Timestamptz()
+  ledgerTxId   String?  @db.Uuid // Reference to the ledger entry
+
+  @@unique([membershipNo, feeYear])
+  @@index([membershipNo])
+  @@map("annual_fee_records")
+}
+
+// ---------------------------------------------------------------------------
+// INSTALLMENT SCHEDULE — Tracks monthly installment status per token
+// PRD 5.1: "monthly installment progress (Paid, Unpaid, Upgraded)"
+// ---------------------------------------------------------------------------
+
+enum InstallmentStatus {
+  PENDING
+  PAID
+  MISSED
+  PENALTY_APPLIED
+  UPGRADED
+}
+
+model InstallmentSchedule {
+  id           String            @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  tokenSerial  String            @db.VarChar(50)
+  dueDate      DateTime          @db.Date
+  amountDue    Decimal           @db.Decimal(10, 2)
+  amountPaid   Decimal           @default(0) @db.Decimal(10, 2)
+  status       InstallmentStatus @default(PENDING)
+  penaltyAmount Decimal?         @db.Decimal(10, 2)
+  paidAt       DateTime?         @db.Timestamptz()
+  ledgerTxId   String?           @db.Uuid
+
+  @@unique([tokenSerial, dueDate])
+  @@index([tokenSerial])
+  @@index([dueDate])
+  @@index([status])
+  @@map("installment_schedule")
+}
+
+// ---------------------------------------------------------------------------
+// PAYOUT RECORDS — Annual payout cycle tracking
+// PRD 5.3: "Annual Payout Engine: execute the 1-yearly payment cycle"
+// ---------------------------------------------------------------------------
+
+enum PayoutDecision {
+  WITHDRAW
+  CARRY_OVER
+}
+
+model PayoutRecord {
+  id            String         @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  membershipNo  String         @db.VarChar(20)
+  payoutYear    Int
+  decision      PayoutDecision
+  grossAmount   Decimal        @db.Decimal(18, 2)
+  feesDeducted  Decimal        @db.Decimal(18, 2)
+  netAmount     Decimal        @db.Decimal(18, 2)
+  processedAt   DateTime       @default(now()) @db.Timestamptz()
+  processedBy   String?        @db.Uuid // SUPER_ADMIN who processed it
+
+  @@unique([membershipNo, payoutYear])
+  @@index([membershipNo])
+  @@index([payoutYear])
+  @@map("payout_records")
+}

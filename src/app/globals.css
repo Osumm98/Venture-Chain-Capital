@@ -1,0 +1,480 @@
+@import "tailwindcss";
+
+/* ========================================================================== *
+ * VCC — Venture Chain Capital: Design System
+ * ========================================================================== *
+ * Benchmark: Auremin.com — Deep dark mode, glassmorphism, neon accents.
+ * Typography: Space Grotesk (headings) + Inter (body/data).
+ * Fonts loaded via next/font/google in layout.tsx for optimal performance.
+ * ========================================================================== */
+
+/* -------------------------------------------------------------------------- *
+ * Tailwind v4 Theme Extensions
+ * -------------------------------------------------------------------------- */
+
+@theme inline {
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  :root {
+    --color-background: #FAFAFA;
+    --color-foreground: #0F172A;
+
+    /* Deeper green for contrast in light mode */
+    --color-vcc-green: #00BA66;
+    --color-vcc-green-dim: #009955;
+    --color-vcc-green-glow: rgba(0, 186, 102, 0.15);
+    --color-vcc-green-subtle: rgba(0, 186, 102, 0.08);
+
+    --color-surface-0: #FFFFFF;
+    --color-surface-1: rgba(248, 250, 252, 0.75);
+    --color-surface-2: rgba(241, 245, 249, 0.65);
+    --color-surface-3: rgba(226, 232, 240, 0.55);
+
+    --color-border-dim: rgba(0, 0, 0, 0.06);
+    --color-border-subtle: rgba(0, 0, 0, 0.12);
+    --color-border-accent: rgba(0, 186, 102, 0.3);
+
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #475569;
+    --color-text-tertiary: #94A3B8;
+  }
+
+  .dark {
+    --color-background: #0A0F14;
+    --color-foreground: #E8ECF0;
+
+    --color-vcc-green: #00FF88;
+    --color-vcc-green-dim: #00CC6A;
+    --color-vcc-green-glow: rgba(0, 255, 136, 0.15);
+    --color-vcc-green-subtle: rgba(0, 255, 136, 0.06);
+
+    --color-surface-0: #0A0F14;
+    --color-surface-1: rgba(15, 22, 30, 0.65);
+    --color-surface-2: rgba(20, 28, 38, 0.55);
+    --color-surface-3: rgba(30, 40, 52, 0.45);
+
+    --color-border-dim: rgba(255, 255, 255, 0.06);
+    --color-border-subtle: rgba(255, 255, 255, 0.10);
+    --color-border-accent: rgba(0, 255, 136, 0.20);
+
+    --color-text-primary: #E8ECF0;
+    --color-text-secondary: #8A94A0;
+    --color-text-tertiary: #5A6470;
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ * Base Styles
+ * -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-surface-0);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Typography
+ * -------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+/* -------------------------------------------------------------------------- *
+ * Logo — light/dark mode adaptive filter
+ * White PNG logos need brightness(0) in light mode to become visible.
+ * -------------------------------------------------------------------------- */
+
+.logo-adaptive {
+  filter: brightness(0);
+  transition: filter 0.3s ease;
+}
+
+.dark .logo-adaptive {
+  filter: brightness(1);
+}
+
+/* -------------------------------------------------------------------------- *
+ * Glassmorphism Utility Classes
+ * -------------------------------------------------------------------------- */
+
+.glass {
+  background: var(--color-surface-1);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.glass-strong {
+  background: var(--color-surface-2);
+  backdrop-filter: blur(40px) saturate(1.6);
+  -webkit-backdrop-filter: blur(40px) saturate(1.6);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.glass-accent {
+  background: var(--color-surface-1);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid var(--color-border-accent);
+}
+
+/* -------------------------------------------------------------------------- *
+ * Glow Effects
+ * -------------------------------------------------------------------------- */
+
+.glow-green {
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.08),
+    0 0 60px rgba(0, 255, 136, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.glow-green-strong {
+  box-shadow:
+    0 0 30px rgba(0, 255, 136, 0.15),
+    0 0 80px rgba(0, 255, 136, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.text-glow {
+  text-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+}
+
+/* -------------------------------------------------------------------------- *
+ * Noise Overlay — Subtle texture
+ * -------------------------------------------------------------------------- */
+
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  z-index: 1;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Animations
+ * -------------------------------------------------------------------------- */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Selection
+ * -------------------------------------------------------------------------- */
+
+::selection {
+  background: rgba(0, 255, 136, 0.20);
+  color: #FFFFFF;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Scrollbar — Minimal, dark
+ * -------------------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* -------------------------------------------------------------------------- *
+ * Reduced Motion
+ * -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-fade-in-up,
+  .animate-pulse-glow {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- *
+ * Animations
+ * -------------------------------------------------------------------------- */
+
+@keyframes sweep {
+  0% { transform: translateX(-150%) skewX(-30deg); }
+  100% { transform: translateX(150%) skewX(-30deg); }
+}
+
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+@keyframes border-rotate {
+  0% { --border-angle: 0deg; }
+  100% { --border-angle: 360deg; }
+}
+
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; filter: blur(20px); }
+  50% { opacity: 0.7; filter: blur(30px); }
+}
+
+/* -------------------------------------------------------------------------- *
+ * Premium Tier Colors
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --tier-entry: #7C8A98;
+  --tier-silver: #A8B8C8;
+  --tier-gold: #D4A853;
+  --tier-platinum: #B8C4D0;
+  --tier-diamond: #7EB8E0;
+  --tier-group: var(--color-vcc-green);
+}
+
+/* -------------------------------------------------------------------------- *
+ * Animated Gradient Border
+ * -------------------------------------------------------------------------- */
+
+.gradient-border {
+  position: relative;
+  border: none !important;
+  isolation: isolate;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    transparent 25%,
+    var(--tier-color, var(--color-vcc-green)) 50%,
+    transparent 75%
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  animation: border-rotate 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Shimmer Effect — sweeps across cards
+ * -------------------------------------------------------------------------- */
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.03) 55%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.shimmer-effect:hover::after {
+  animation: shimmer 1.2s ease-in-out;
+}
+
+/* -------------------------------------------------------------------------- *
+ * Premium Card Surfaces
+ * -------------------------------------------------------------------------- */
+
+.card-premium {
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-surface-1) 0%,
+      var(--color-surface-2) 100%
+    );
+  backdrop-filter: blur(40px) saturate(1.6);
+  -webkit-backdrop-filter: blur(40px) saturate(1.6);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 0 0 1px var(--color-border-dim),
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.card-premium:hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 0 0 1px var(--color-border-accent),
+    0 16px 48px rgba(0, 0, 0, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.12),
+    0 0 40px var(--tier-glow, rgba(0, 255, 136, 0.06));
+  transform: translateY(-4px);
+}
+
+/* -------------------------------------------------------------------------- *
+ * Accent card — featured tier with permanent glow
+ * -------------------------------------------------------------------------- */
+
+.card-featured {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 255, 136, 0.04) 0%,
+      var(--color-surface-1) 30%,
+      var(--color-surface-2) 100%
+    );
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 0 0 1px rgba(0, 255, 136, 0.2),
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 0 40px rgba(0, 255, 136, 0.06);
+}
+
+.card-featured:hover {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 0 0 1px rgba(0, 255, 136, 0.35),
+    0 16px 48px rgba(0, 0, 0, 0.2),
+    0 0 60px rgba(0, 255, 136, 0.12),
+    0 0 120px rgba(0, 255, 136, 0.04);
+  transform: translateY(-6px);
+}
+/* -------------------------------------------------------------------------- *
+ * Force Mobile View — desktop users can simulate a mobile layout
+ * The .force-mobile class is applied to <html> by ViewModeProvider.
+ * We constrain the body to a phone-width container centered on screen.
+ * -------------------------------------------------------------------------- */
+
+html.force-mobile body {
+  max-width: 430px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
+  border-left: 1px solid var(--color-border-dim);
+  border-right: 1px solid var(--color-border-dim);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ensure fixed elements (headers, sidebars, overlays) also respect the container */
+html.force-mobile .fixed,
+html.force-mobile [class*="fixed"] {
+  max-width: 430px;
+  left: 50% !important;
+  transform: translateX(-50%);
+  right: auto !important;
+}
+
+/* Override for overlays and backdrops that need full coverage within container */
+html.force-mobile [role="button"][aria-label="Close menu"],
+html.force-mobile [role="button"][aria-label="Close sidebar"] {
+  max-width: none;
+  left: 0 !important;
+  transform: none;
+  right: 0 !important;
+}
+

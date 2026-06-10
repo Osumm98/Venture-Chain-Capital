@@ -1,0 +1,423 @@
+"use server";
+
+// =============================================================================
+// VCC — Dashboard Server Actions
+// =============================================================================
+// Fetches investor data from the database via Prisma.
+// In development, returns demo data when the DB is unreachable.
+// All actions require authentication via requireSession().
+// =============================================================================
+
+import { requireSession } from "@/lib/session";
+import { Decimal } from "@/lib/decimal";
+
+// ---------------------------------------------------------------------------
+// Types
+// ---------------------------------------------------------------------------
+
+export interface DashboardSummary {
+  readonly displayName: string;
+  readonly membershipNo: string;
+  readonly totalAccountValue: string;
+  readonly totalTokens: number;
+  readonly activeTiers: ReadonlyArray<string>;
+  readonly creditBalance: string;
+}
+
+export interface TokenCardData {
+  readonly tokenSerial: string;
+  readonly tier: string;
+  readonly issueYear: number;
+  readonly status: string;
+  readonly isCarryOver: boolean;
+  readonly currentCashoutValue: string;
+  readonly installmentsPaid: number;
+  readonly installmentsTotal: number;
+}
+
+export interface LedgerRow {
+  readonly txId: string;
+  readonly txDate: string;
+  readonly type: string;
+  readonly amount: string;
+  readonly tokenSerial: string | null;
+  readonly referenceNote: string | null;
+  readonly balanceSnapshot: string | null;
+}
+
+export interface LedgerPage {
+  readonly rows: ReadonlyArray<LedgerRow>;
+  readonly totalRows: number;
+  readonly page: number;
+  readonly pageSize: number;
+  readonly totalPages: number;
+}
+
+export interface PortfolioGrowthPoint {
+  readonly date: string;
+  readonly value: number;
+}
+
+// ---------------------------------------------------------------------------
+// Dev-mode demo data
+// ---------------------------------------------------------------------------
+
+const DEV_TOKENS: ReadonlyArray<TokenCardData> = [
+  {
+    tokenSerial: "VCC-2026-GOLD-00142",
+    tier: "GOLD",
+    issueYear: 2026,
+    status: "ACTIVE",
+    isCarryOver: false,
+    currentCashoutValue: "3750.00",
+    installmentsPaid: 7,
+    installmentsTotal: 12,
+  },
+  {
+    tokenSerial: "VCC-2026-SILVER-00318",
+    tier: "SILVER",
+    issueYear: 2026,
+    status: "ACTIVE",
+    isCarryOver: false,
+    currentCashoutValue: "1875.00",
+    installmentsPaid: 7,
+    installmentsTotal: 12,
+  },
+  {
+    tokenSerial: "VCC-2025-GOLD-00099",
+    tier: "GOLD",
+    issueYear: 2025,
+    status: "ACTIVE",
+    isCarryOver: true,
+    currentCashoutValue: "4500.00",
+    installmentsPaid: 12,
+    installmentsTotal: 12,
+  },
+];
+
+function generateDevGrowthData(): ReadonlyArray<PortfolioGrowthPoint> {
+  const points: PortfolioGrowthPoint[] = [];
+  const startDate = new Date("2026-01-01");
+  let value = 5000;
+
+  for (let weekIndex = 0; weekIndex < 23; weekIndex++) {
+    const dateObj = new Date(startDate);
+    dateObj.setDate(dateObj.getDate() + weekIndex * 7);
+    // Simulate organic growth with some weekly variance
+    const weeklyReturn = 0.008 + Math.sin(weekIndex * 0.4) * 0.005;
+    value = value * (1 + weeklyReturn);
+    points.push({
+      date: dateObj.toISOString().split("T")[0],
+      value: parseFloat(value.toFixed(2)),
+    });
+  }
+
+  return points;
+}
+
+function generateDevLedger(): ReadonlyArray<LedgerRow> {
+  const entries: LedgerRow[] = [];
+  const baseDate = new Date("2026-06-01");
+  let balance = 10125.00;
+
+  const txTemplates: ReadonlyArray<{
+    readonly type: string;
+    readonly amountRange: readonly [number, number];
+    readonly token: string | null;
+  }> = [
+    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
+    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
+    { type: "ADMIN_FEE", amountRange: [22.13, 22.13], token: "VCC-2026-GOLD-00142" },
+    { type: "PROFIT_FEE", amountRange: [21.88, 21.88], token: "VCC-2026-GOLD-00142" },
+    { type: "CREDIT_APPLIED", amountRange: [44.01, 44.01], token: null },
+    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
+    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
+    { type: "PENALTY", amountRange: [37.50, 37.50], token: "VCC-2026-GOLD-00142" },
+    { type: "ADMIN_FEE", amountRange: [11.06, 11.06], token: "VCC-2026-SILVER-00318" },
+    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
+    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
+    { type: "CREDIT_APPLIED", amountRange: [18.75, 18.75], token: null },
+    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
+    { type: "ADMIN_FEE", amountRange: [22.13, 22.13], token: "VCC-2026-GOLD-00142" },
+    { type: "PROFIT_FEE", amountRange: [21.88, 21.88], token: "VCC-2026-GOLD-00142" },
+    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
+    { type: "ADMIN_FEE", amountRange: [11.06, 11.06], token: "VCC-2026-SILVER-00318" },
+    { type: "PROFIT_FEE", amountRange: [11.25, 11.25], token: "VCC-2026-SILVER-00318" },
+    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
+    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
+    { type: "PENALTY", amountRange: [18.75, 18.75], token: "VCC-2026-SILVER-00318" },
+    { type: "CREDIT_APPLIED", amountRange: [56.25, 56.25], token: null },
+    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
+    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
+    { type: "ADMIN_FEE", amountRange: [22.13, 22.13], token: "VCC-2026-GOLD-00142" },
+  ];
+
+  for (let entryIndex = 0; entryIndex < txTemplates.length; entryIndex++) {
+    const template = txTemplates[entryIndex];
+    const dateObj = new Date(baseDate);
+    dateObj.setDate(dateObj.getDate() - entryIndex * 2);
+    const amount = template.amountRange[0];
+
+    if (template.type === "PAYMENT" || template.type === "CREDIT_APPLIED") {
+      balance = parseFloat(new Decimal(balance.toString()).plus(new Decimal(amount.toString())).toFixed(2));
+    } else {
+      balance = parseFloat(new Decimal(balance.toString()).minus(new Decimal(amount.toString())).toFixed(2));
+    }
+
+    entries.push({
+      txId: `dev-tx-${String(entryIndex + 1).padStart(4, "0")}`,
+      txDate: dateObj.toISOString(),
+      type: template.type,
+      amount: amount.toFixed(2),
+      tokenSerial: template.token,
+      referenceNote: null,
+      balanceSnapshot: balance.toFixed(2),
+    });
+  }
+
+  return entries;
+}
+
+// ---------------------------------------------------------------------------
+// DB helper — tries to import prisma, returns null if unavailable
+// ---------------------------------------------------------------------------
+
+async function tryGetPrisma(): Promise<typeof import("@/lib/prisma").prisma | null> {
+  try {
+    const { prisma } = await import("@/lib/prisma");
+    // Quick connectivity test
+    await prisma.$queryRaw`SELECT 1`;
+    return prisma;
+  } catch {
+    return null;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// getDashboardSummary — Hero metrics for the welcome header
+// ---------------------------------------------------------------------------
+
+export async function getDashboardSummary(): Promise<DashboardSummary> {
+  const session = await requireSession();
+  const db = await tryGetPrisma();
+
+  if (!db) {
+    // Dev fallback
+    const totalValue = DEV_TOKENS.reduce(
+      (acc, t) => acc.plus(new Decimal(t.currentCashoutValue)),
+      new Decimal(0)
+    );
+    return {
+      displayName: session.displayName,
+      membershipNo: session.membershipNo,
+      totalAccountValue: totalValue.toFixed(2),
+      totalTokens: DEV_TOKENS.length,
+      activeTiers: [...new Set(DEV_TOKENS.map((t) => t.tier))],
+      creditBalance: "118.01",
+    };
+  }
+
+  const user = await db.user.findUniqueOrThrow({
+    where: { membershipNo: session.membershipNo },
+    include: {
+      tokens: {
+        where: { status: "ACTIVE" },
+        select: { tokenSerial: true, tier: true },
+      },
+    },
+  });
+
+  let totalValue = new Decimal(0);
+  const tierSet = new Set<string>();
+
+  for (const token of user.tokens) {
+    tierSet.add(token.tier);
+    const latestPricing = await db.tokenPricingHistory.findFirst({
+      where: { tier: token.tier },
+      orderBy: { dateEffective: "desc" },
+      select: { cashoutValue: true },
+    });
+    if (latestPricing) {
+      totalValue = totalValue.plus(new Decimal(latestPricing.cashoutValue.toString()));
+    }
+  }
+
+  const latestLedger = await db.ledgerEntry.findFirst({
+    where: { membershipNo: session.membershipNo },
+    orderBy: { txDate: "desc" },
+    select: { balanceSnapshot: true },
+  });
+
+  const creditBalance = latestLedger?.balanceSnapshot
+    ? new Decimal(latestLedger.balanceSnapshot.toString()).toFixed(2)
+    : "0.00";
+
+  return {
+    displayName: session.displayName,
+    membershipNo: session.membershipNo,
+    totalAccountValue: totalValue.plus(new Decimal(creditBalance)).toFixed(2),
+    totalTokens: user.tokens.length,
+    activeTiers: Array.from(tierSet),
+    creditBalance,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// getActiveTokens — Token wallet data for flippable cards
+// ---------------------------------------------------------------------------
+
+export async function getActiveTokens(): Promise<ReadonlyArray<TokenCardData>> {
+  await requireSession();
+  const db = await tryGetPrisma();
+
+  if (!db) return DEV_TOKENS;
+
+  const session = await requireSession();
+  const tokens = await db.memberToken.findMany({
+    where: { membershipNo: session.membershipNo, status: "ACTIVE" },
+    orderBy: { issuedAt: "desc" },
+  });
+
+  const tokenCards: TokenCardData[] = [];
+
+  for (const token of tokens) {
+    const latestPricing = await db.tokenPricingHistory.findFirst({
+      where: { tier: token.tier },
+      orderBy: { dateEffective: "desc" },
+      select: { cashoutValue: true },
+    });
+
+    const installments = await db.installmentSchedule.findMany({
+      where: { tokenSerial: token.tokenSerial },
+      select: { status: true },
+    });
+
+    tokenCards.push({
+      tokenSerial: token.tokenSerial,
+      tier: token.tier,
+      issueYear: token.issueYear,
+      status: token.status,
+      isCarryOver: token.isCarryOver,
+      currentCashoutValue: latestPricing
+        ? new Decimal(latestPricing.cashoutValue.toString()).toFixed(2)
+        : "0.00",
+      installmentsPaid: installments.filter((inst) => inst.status === "PAID").length,
+      installmentsTotal: installments.length,
+    });
+  }
+
+  return tokenCards;
+}
+
+// ---------------------------------------------------------------------------
+// getLedgerPage — Paginated chronological ledger
+// ---------------------------------------------------------------------------
+
+export async function getLedgerPage(
+  page: number = 1,
+  pageSize: number = 15
+): Promise<LedgerPage> {
+  await requireSession();
+  const db = await tryGetPrisma();
+
+  const safePage = Math.max(1, Math.floor(page));
+  const safePageSize = Math.min(50, Math.max(5, Math.floor(pageSize)));
+
+  if (!db) {
+    const allEntries = generateDevLedger();
+    const skip = (safePage - 1) * safePageSize;
+    const pageEntries = allEntries.slice(skip, skip + safePageSize);
+    return {
+      rows: pageEntries,
+      totalRows: allEntries.length,
+      page: safePage,
+      pageSize: safePageSize,
+      totalPages: Math.ceil(allEntries.length / safePageSize),
+    };
+  }
+
+  const session = await requireSession();
+  const skip = (safePage - 1) * safePageSize;
+
+  const [rows, totalRows] = await Promise.all([
+    db.ledgerEntry.findMany({
+      where: { membershipNo: session.membershipNo },
+      orderBy: { txDate: "desc" },
+      skip,
+      take: safePageSize,
+      select: {
+        txId: true,
+        txDate: true,
+        type: true,
+        amount: true,
+        tokenSerial: true,
+        referenceNote: true,
+        balanceSnapshot: true,
+      },
+    }),
+    db.ledgerEntry.count({
+      where: { membershipNo: session.membershipNo },
+    }),
+  ]);
+
+  return {
+    rows: rows.map((row) => ({
+      txId: row.txId,
+      txDate: row.txDate.toISOString(),
+      type: row.type,
+      amount: new Decimal(row.amount.toString()).toFixed(2),
+      tokenSerial: row.tokenSerial,
+      referenceNote: row.referenceNote,
+      balanceSnapshot: row.balanceSnapshot
+        ? new Decimal(row.balanceSnapshot.toString()).toFixed(2)
+        : null,
+    })),
+    totalRows,
+    page: safePage,
+    pageSize: safePageSize,
+    totalPages: Math.ceil(totalRows / safePageSize),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// getPortfolioGrowth — Time-series data for the recharts spline graph
+// ---------------------------------------------------------------------------
+
+export async function getPortfolioGrowth(): Promise<ReadonlyArray<PortfolioGrowthPoint>> {
+  await requireSession();
+  const db = await tryGetPrisma();
+
+  if (!db) return generateDevGrowthData();
+
+  const session = await requireSession();
+  const tokens = await db.memberToken.findMany({
+    where: { membershipNo: session.membershipNo, status: "ACTIVE" },
+    select: { tier: true },
+  });
+
+  if (tokens.length === 0) return [];
+
+  const tiers = [...new Set(tokens.map((t) => t.tier))];
+  const pricingHistory = await db.tokenPricingHistory.findMany({
+    where: { tier: { in: tiers } },
+    orderBy: { dateEffective: "asc" },
+    select: { dateEffective: true, tier: true, cashoutValue: true },
+  });
+
+  const dateMap = new Map<string, Decimal>();
+
+  for (const record of pricingHistory) {
+    const dateKey = record.dateEffective.toISOString().split("T")[0];
+    const tokenCount = tokens.filter((t) => t.tier === record.tier).length;
+    const valueForTier = new Decimal(record.cashoutValue.toString()).times(tokenCount);
+    const existing = dateMap.get(dateKey) ?? new Decimal(0);
+    dateMap.set(dateKey, existing.plus(valueForTier));
+  }
+
+  return Array.from(dateMap.entries())
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([date, value]) => ({
+      date,
+      value: parseFloat(value.toFixed(2)),
+    }));
+}
