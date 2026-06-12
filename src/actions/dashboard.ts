@@ -58,42 +58,7 @@ export interface PortfolioGrowthPoint {
   readonly value: number;
 }
 
-// ---------------------------------------------------------------------------
-// Dev-mode demo data
-// ---------------------------------------------------------------------------
-
-const DEV_TOKENS: ReadonlyArray<TokenCardData> = [
-  {
-    tokenSerial: "VCC-2026-GOLD-00142",
-    tier: "GOLD",
-    issueYear: 2026,
-    status: "ACTIVE",
-    isCarryOver: false,
-    currentCashoutValue: "3750.00",
-    installmentsPaid: 7,
-    installmentsTotal: 12,
-  },
-  {
-    tokenSerial: "VCC-2026-SILVER-00318",
-    tier: "SILVER",
-    issueYear: 2026,
-    status: "ACTIVE",
-    isCarryOver: false,
-    currentCashoutValue: "1875.00",
-    installmentsPaid: 7,
-    installmentsTotal: 12,
-  },
-  {
-    tokenSerial: "VCC-2025-GOLD-00099",
-    tier: "GOLD",
-    issueYear: 2025,
-    status: "ACTIVE",
-    isCarryOver: true,
-    currentCashoutValue: "4500.00",
-    installmentsPaid: 12,
-    installmentsTotal: 12,
-  },
-];
+import { DEMO_ACCOUNTS } from "@/lib/demo-data";
 
 function generateDevGrowthData(): ReadonlyArray<PortfolioGrowthPoint> {
   const points: PortfolioGrowthPoint[] = [];
@@ -203,7 +168,9 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
 
   if (!db) {
     // Dev fallback
-    const totalValue = DEV_TOKENS.reduce(
+    const devUser = DEMO_ACCOUNTS.find(u => u.membershipNo === session.membershipNo);
+    const userTokens = devUser?.tokens || [];
+    const totalValue = userTokens.reduce(
       (acc, t) => acc.plus(new Decimal(t.currentCashoutValue)),
       new Decimal(0)
     );
@@ -211,8 +178,8 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
       displayName: session.displayName,
       membershipNo: session.membershipNo,
       totalAccountValue: totalValue.toFixed(2),
-      totalTokens: DEV_TOKENS.length,
-      activeTiers: [...new Set(DEV_TOKENS.map((t) => t.tier))],
+      totalTokens: userTokens.length,
+      activeTiers: [...new Set(userTokens.map((t) => t.tier))],
       creditBalance: "118.01",
     };
   }
@@ -270,7 +237,11 @@ export async function getActiveTokens(): Promise<ReadonlyArray<TokenCardData>> {
   await requireSession();
   const db = await tryGetPrisma();
 
-  if (!db) return DEV_TOKENS;
+  if (!db) {
+    const session = await requireSession();
+    const devUser = DEMO_ACCOUNTS.find(u => u.membershipNo === session.membershipNo);
+    return devUser?.tokens || [];
+  }
 
   const session = await requireSession();
   const tokens = await db.memberToken.findMany({

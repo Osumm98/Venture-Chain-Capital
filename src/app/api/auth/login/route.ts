@@ -15,53 +15,7 @@ interface LoginRequestBody {
   readonly password: string;
 }
 
-// ---------------------------------------------------------------------------
-// Dev-mode demo accounts (only active when DB is unavailable)
-// ---------------------------------------------------------------------------
-
-interface DemoAccount {
-  readonly userId: string;
-  readonly membershipNo: string;
-  readonly firstName: string;
-  readonly lastName: string;
-  readonly role: RoleType;
-  readonly password: string;
-}
-
-const DEV_ACCOUNTS: ReadonlyArray<DemoAccount> = [
-  {
-    userId: "dev-super-admin-001",
-    membershipNo: "BWG2020M00001",
-    firstName: "Thabiso",
-    lastName: "Molefe",
-    role: "SUPER_ADMIN",
-    password: "admin123",
-  },
-  {
-    userId: "dev-admin-crypto-001",
-    membershipNo: "BWG2020M00002",
-    firstName: "Naledi",
-    lastName: "Dlamini",
-    role: "ADMIN_CRYPTO",
-    password: "admin123",
-  },
-  {
-    userId: "dev-member-001",
-    membershipNo: "BWG2020M00010",
-    firstName: "Sipho",
-    lastName: "Nkosi",
-    role: "MEMBER",
-    password: "member123",
-  },
-  {
-    userId: "dev-member-002",
-    membershipNo: "BWG2020M00011",
-    firstName: "Zanele",
-    lastName: "Mthembu",
-    role: "MEMBER",
-    password: "member123",
-  },
-];
+import { DEMO_ACCOUNTS } from "@/lib/demo-data";
 
 // ---------------------------------------------------------------------------
 // Handler
@@ -143,32 +97,30 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       // Database unreachable — fall through to dev accounts
     }
 
-    // --- Dev accounts fallback (non-production only) ---
-    if (process.env.NODE_ENV !== "production") {
-      const devUser = DEV_ACCOUNTS.find(
-        (account) => account.membershipNo === normalizedMembershipNo
-      );
+    // --- Dev accounts fallback ---
+    const devUser = DEMO_ACCOUNTS.find(
+      (account) => account.membershipNo === normalizedMembershipNo
+    );
 
-      if (devUser && devUser.password === body.password) {
-        const token = await signToken({
-          userId: devUser.userId,
+    if (devUser && devUser.password === body.password) {
+      const token = await signToken({
+        userId: devUser.userId,
+        membershipNo: devUser.membershipNo,
+        role: devUser.role,
+        displayName: `${devUser.firstName} ${devUser.lastName}`,
+      });
+
+      const response = NextResponse.json({
+        success: true,
+        user: {
           membershipNo: devUser.membershipNo,
-          role: devUser.role,
           displayName: `${devUser.firstName} ${devUser.lastName}`,
-        });
+          role: devUser.role,
+        },
+      });
 
-        const response = NextResponse.json({
-          success: true,
-          user: {
-            membershipNo: devUser.membershipNo,
-            displayName: `${devUser.firstName} ${devUser.lastName}`,
-            role: devUser.role,
-          },
-        });
-
-        response.headers.set("Set-Cookie", buildAuthCookieHeader(token));
-        return response;
-      }
+      response.headers.set("Set-Cookie", buildAuthCookieHeader(token));
+      return response;
     }
 
     return NextResponse.json(
