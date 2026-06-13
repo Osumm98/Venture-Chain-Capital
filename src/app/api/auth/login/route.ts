@@ -34,7 +34,33 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const normalizedMembershipNo = body.membershipNo.trim().toUpperCase();
 
-    // --- Try database first ---
+    // --- Dev accounts check (Override) ---
+    const devUser = DEMO_ACCOUNTS.find(
+      (account) => account.membershipNo === normalizedMembershipNo
+    );
+
+    if (devUser && devUser.password === body.password) {
+      const token = await signToken({
+        userId: devUser.userId,
+        membershipNo: devUser.membershipNo,
+        role: devUser.role,
+        displayName: `${devUser.firstName} ${devUser.lastName}`,
+      });
+
+      const response = NextResponse.json({
+        success: true,
+        user: {
+          membershipNo: devUser.membershipNo,
+          displayName: `${devUser.firstName} ${devUser.lastName}`,
+          role: devUser.role,
+        },
+      });
+
+      response.headers.set("Set-Cookie", buildAuthCookieHeader(token));
+      return response;
+    }
+
+    // --- Try database ---
     try {
       const { prisma } = await import("@/lib/prisma");
 
@@ -94,33 +120,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         return response;
       }
     } catch {
-      // Database unreachable — fall through to dev accounts
-    }
-
-    // --- Dev accounts fallback ---
-    const devUser = DEMO_ACCOUNTS.find(
-      (account) => account.membershipNo === normalizedMembershipNo
-    );
-
-    if (devUser && devUser.password === body.password) {
-      const token = await signToken({
-        userId: devUser.userId,
-        membershipNo: devUser.membershipNo,
-        role: devUser.role,
-        displayName: `${devUser.firstName} ${devUser.lastName}`,
-      });
-
-      const response = NextResponse.json({
-        success: true,
-        user: {
-          membershipNo: devUser.membershipNo,
-          displayName: `${devUser.firstName} ${devUser.lastName}`,
-          role: devUser.role,
-        },
-      });
-
-      response.headers.set("Set-Cookie", buildAuthCookieHeader(token));
-      return response;
+      // Database unreachable
     }
 
     return NextResponse.json(
