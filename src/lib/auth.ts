@@ -56,9 +56,11 @@ export async function verifyToken(token: string): Promise<VccTokenPayload | null
     const { payload } = await jwtVerify(token, JWT_SECRET, {
       issuer: JWT_ISSUER,
       audience: JWT_AUDIENCE,
+      clockTolerance: 120, // 2 minutes tolerance for Edge/Node clock skew
     });
     return payload as VccTokenPayload;
-  } catch {
+  } catch (error) {
+    console.error("JWT Verification failed:", error);
     return null;
   }
 }
@@ -71,7 +73,8 @@ export const AUTH_COOKIE_NAME = "vcc-auth-token";
 
 export function buildAuthCookieHeader(token: string): string {
   const maxAge = 8 * 60 * 60; // 8 hours in seconds
-  return `${AUTH_COOKIE_NAME}=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}`;
+  const secure = process.env.NODE_ENV === "production" ? "Secure;" : "";
+  return `${AUTH_COOKIE_NAME}=${token}; Path=/; HttpOnly; SameSite=Lax; ${secure} Max-Age=${maxAge}`;
 }
 
 export function buildLogoutCookieHeader(): string {
