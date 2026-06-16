@@ -63,11 +63,15 @@ export function NewsCard({ article, index }: NewsCardProps): React.JSX.Element {
   const catColor = 
     article.category === "Crypto" ? "from-[#00ff88] to-[#00aa55]" :
     article.category === "AI" ? "from-[#8800ff] to-[#5500aa]" :
+    article.category === "Commodities" ? "from-[#ffaa00] to-[#cc8800]" :
+    article.category === "Forex" ? "from-[#ff0088] to-[#cc0066]" :
     "from-[#0088ff] to-[#0055aa]";
 
   const shadowColor = 
     article.category === "Crypto" ? "rgba(0,255,136,0.2)" :
     article.category === "AI" ? "rgba(136,0,255,0.2)" :
+    article.category === "Commodities" ? "rgba(255,170,0,0.2)" :
+    article.category === "Forex" ? "rgba(255,0,136,0.2)" :
     "rgba(0,136,255,0.2)";
 
   if (!mounted) return <div className="h-[200px] w-full bg-[var(--color-surface-1)] rounded-2xl animate-pulse" />;
@@ -95,13 +99,13 @@ export function NewsCard({ article, index }: NewsCardProps): React.JSX.Element {
       <div className="relative z-10 flex flex-col h-full justify-between">
         <div>
           <div className="flex items-center justify-between mb-4">
-            <span className={`text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-md bg-[var(--color-surface-2)] text-[var(--color-text-secondary)] group-hover:text-white transition-colors border border-[var(--color-border-dim)]`}>
+            <span className={`text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-md bg-[var(--color-surface-2)] text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors border border-[var(--color-border-dim)]`}>
               {article.category}
             </span>
             <ExternalLink className="w-4 h-4 text-[var(--color-text-tertiary)] group-hover:text-[var(--color-vcc-green)] transition-colors" />
           </div>
 
-          <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-3 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+          <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-3 leading-tight group-hover:text-[var(--color-vcc-green)] transition-all">
             {article.title}
           </h3>
         </div>

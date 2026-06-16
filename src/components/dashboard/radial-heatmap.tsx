@@ -50,9 +50,11 @@ interface DataStream {
  * Constants
  * ──────────────────────────────────────────────────────────────────────────── */
 const CATEGORY_COLORS: Record<string, { primary: string; glow: string; rgb: string }> = {
-  Crypto: { primary: "#00ff88", glow: "rgba(0,255,136,", rgb: "0,255,136" },
-  Stocks: { primary: "#0088ff", glow: "rgba(0,136,255,", rgb: "0,136,255" },
-  AI:     { primary: "#aa44ff", glow: "rgba(170,68,255,", rgb: "170,68,255" },
+  Crypto:      { primary: "#00ff88", glow: "rgba(0,255,136,", rgb: "0,255,136" },
+  Stocks:      { primary: "#0088ff", glow: "rgba(0,136,255,", rgb: "0,136,255" },
+  AI:          { primary: "#aa44ff", glow: "rgba(170,68,255,", rgb: "170,68,255" },
+  Commodities: { primary: "#ffaa00", glow: "rgba(255,170,0,", rgb: "255,170,0" },
+  Forex:       { primary: "#ff0088", glow: "rgba(255,0,136,", rgb: "255,0,136" },
 };
 
 const FALLBACK_COLOR = { primary: "#00ff88", glow: "rgba(0,255,136,", rgb: "0,255,136" };
@@ -211,8 +213,10 @@ export function RadialHeatmap({
       ctx.clearRect(0, 0, w, h);
       frameRef.current++;
 
+      const isDark = document.documentElement.classList.contains("dark");
+
       // ── 1. Background grid ──
-      ctx.strokeStyle = "rgba(255,255,255,0.015)";
+      ctx.strokeStyle = isDark ? "rgba(255,255,255,0.015)" : "rgba(0,0,0,0.03)";
       ctx.lineWidth = 0.5;
       const gridSize = 30;
       for (let gx = 0; gx < w; gx += gridSize) {
@@ -315,7 +319,7 @@ export function RadialHeatmap({
         ctx.lineTo(nx, ny);
         ctx.strokeStyle = isActive
           ? `${catColor.glow}0.4)`
-          : "rgba(255,255,255,0.06)";
+          : (isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.06)");
         ctx.lineWidth = isActive ? 1.5 : 1;
         ctx.stroke();
       });
@@ -374,7 +378,7 @@ export function RadialHeatmap({
           nodeGrad.addColorStop(1, catColor.primary);
           ctx.fillStyle = nodeGrad;
         } else {
-          ctx.fillStyle = isHovered ? catColor.primary : "rgba(30,40,50,0.9)";
+          ctx.fillStyle = isHovered ? catColor.primary : (isDark ? "rgba(30,40,50,0.9)" : "rgba(240,245,250,0.9)");
         }
         ctx.shadowColor = isActive ? catColor.primary : "transparent";
         ctx.shadowBlur = isActive ? 20 : 0;
@@ -384,7 +388,7 @@ export function RadialHeatmap({
         // Node border
         ctx.beginPath();
         ctx.arc(nx, ny, mainR, 0, Math.PI * 2);
-        ctx.strokeStyle = isActive ? "white" : isHovered ? catColor.primary : "rgba(255,255,255,0.15)";
+        ctx.strokeStyle = isActive ? "white" : isHovered ? catColor.primary : (isDark ? "rgba(255,255,255,0.15)" : "rgba(0,0,0,0.15)");
         ctx.lineWidth = isActive ? 2 : 1.5;
         ctx.stroke();
 
@@ -403,7 +407,7 @@ export function RadialHeatmap({
           ctx.fillStyle = catColor.primary;
           ctx.fill();
 
-          ctx.fillStyle = "#000";
+          ctx.fillStyle = isDark ? "#000" : "#fff";
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
           ctx.fillText(badgeText, badgeX, badgeY);

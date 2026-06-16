@@ -21,7 +21,7 @@ export function NewsDashboard({ initialArticles }: NewsDashboardProps): React.JS
   const gridRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const categories = ["Crypto", "Stocks", "AI"];
+  const categories = ["Crypto", "Stocks", "AI", "Commodities", "Forex"];
 
   // Compute article counts per category
   const articleCounts: Record<string, number> = {};

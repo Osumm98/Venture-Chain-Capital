@@ -31,6 +31,12 @@ export async function fetchNews(category: string): Promise<ReadonlyArray<NewsArt
       case "ai":
         query = "artificial intelligence OR generative ai OR machine learning tech";
         break;
+      case "commodities":
+        query = "gold OR oil OR commodities OR raw materials market";
+        break;
+      case "forex":
+        query = "forex OR foreign exchange OR currency trading OR USD/EUR";
+        break;
       default:
         query = "finance OR investment OR economy";
     }
@@ -46,7 +52,8 @@ export async function fetchNews(category: string): Promise<ReadonlyArray<NewsArt
     }
 
     // Map to our generic NewsArticle type
-    const articles = feed.items.slice(0, 15).map((item) => {
+    // Increase to 20 to ensure we have at least 5 valid articles
+    const articles = feed.items.slice(0, 20).map((item) => {
       // Google News title format is usually "Headline - Source"
       // We can try to extract the source cleanly if needed, but we also have item.sourceName
       let cleanTitle = item.title || "";

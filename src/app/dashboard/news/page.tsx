@@ -13,16 +13,24 @@ export const revalidate = 900;
 
 export default async function NewsPage() {
   // Fetch news from multiple categories in parallel
-  const [cryptoNews, stocksNews, aiNews] = await Promise.all([
+  const [cryptoNews, stocksNews, aiNews, commoditiesNews, forexNews] = await Promise.all([
     fetchNews("Crypto"),
     fetchNews("Stocks"),
     fetchNews("AI"),
+    fetchNews("Commodities"),
+    fetchNews("Forex"),
   ]);
 
   // Combine and interleave or sort by date. 
   // For now, we just combine them. 
   // In a real scenario, we might want to interleave them or sort by pubDate.
-  const allArticles: NewsArticle[] = [...cryptoNews, ...stocksNews, ...aiNews];
+  const allArticles: NewsArticle[] = [
+    ...cryptoNews, 
+    ...stocksNews, 
+    ...aiNews, 
+    ...commoditiesNews, 
+    ...forexNews
+  ];
   
   // Sort by pubDate descending (newest first)
   allArticles.sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
