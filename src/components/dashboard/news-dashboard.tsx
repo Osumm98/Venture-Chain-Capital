@@ -51,17 +51,20 @@ export function NewsDashboard({ initialArticles }: NewsDashboardProps): React.JS
       });
 
       // Animate cards staggering in
-      gsap.from(".news-card-wrapper", {
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: "top 80%",
+      gsap.fromTo(".news-card-wrapper", 
+        { 
+          y: 60, 
+          opacity: 0 
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.05,
+          ease: "power3.out",
+          clearProps: "all" // removes inline styles after animation
         }
-      });
+      );
     }, containerRef);
 
     return () => ctx.revert();
