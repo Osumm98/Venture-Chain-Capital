@@ -204,6 +204,12 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
 
   if (!user) return getDemoSummary(session);
 
+  // If user exists in DB but has no tokens, prefer the richer Excel-sourced demo data
+  const demoUser = DEMO_ACCOUNTS.find(u => u.membershipNo === session.membershipNo);
+  if (user.tokens.length === 0 && demoUser && demoUser.tokens.length > 0) {
+    return getDemoSummary(session);
+  }
+
   let totalValue = new Decimal(0);
   const tierSet = new Set<string>();
 
