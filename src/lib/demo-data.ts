@@ -8,6 +8,12 @@ import type { TokenCardData } from "@/actions/dashboard";
 // Token counts: instalment + carry-over from individual member sheets
 // =============================================================================
 
+export interface PaymentData {
+  readonly reference: string;
+  readonly date: string | null;
+  readonly amount: number;
+}
+
 export interface DemoAccount {
   readonly userId: string;
   readonly membershipNo: string;
@@ -17,6 +23,7 @@ export interface DemoAccount {
   readonly password: string;
   readonly accountValue: string;
   readonly tokens: ReadonlyArray<TokenCardData>;
+  readonly payments: ReadonlyArray<PaymentData>;
 }
 
 // Current weekly cashout prices (ZAR) — updated 2025-12-14
@@ -108,6 +115,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+    ],
   },
   {
     userId: "demo-bwg2020m00001",
@@ -189,6 +198,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-25 00:00:00",
+        amount: 500.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-26 00:00:00",
+        amount: 500.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-25 00:00:00",
+        amount: 500.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2020m00002",
@@ -209,6 +235,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsPaid: 0,
         installmentsTotal: 12,
       },
+    ],
+    payments: [
     ],
   },
   {
@@ -249,6 +277,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "10668.75",
         installmentsPaid: 5,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-26 00:00:00",
+        amount: 1500.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-05-02 00:00:00",
+        amount: 2000.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-05-11 00:00:00",
+        amount: 2000.0,
       },
     ],
   },
@@ -322,6 +367,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-03-02 00:00:00",
+        amount: 268.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-04-01 00:00:00",
+        amount: 268.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-05-02 00:00:00",
+        amount: 268.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2020m00005",
@@ -373,6 +435,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-28 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-04-01 00:00:00",
+        amount: 268.04,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-05-02 00:00:00",
+        amount: 250.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2020m00006",
@@ -402,6 +481,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "2656.90",
         installmentsPaid: 5,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-19 00:00:00",
+        amount: 1000.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-19 00:00:00",
+        amount: 1100.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-05-02 00:00:00",
+        amount: 500.0,
       },
     ],
   },
@@ -465,6 +561,28 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-25 00:00:00",
+        amount: 500.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-26 00:00:00",
+        amount: 500.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-25 00:00:00",
+        amount: 575.0,
+      },
+      {
+        reference: "PAYMENT 4",
+        date: "2026-04-25 00:00:00",
+        amount: 500.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2020m00010",
@@ -514,6 +632,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "10668.75",
         installmentsPaid: 12,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-03-02 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-31 00:00:00",
+        amount: 482.56,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-25 00:00:00",
+        amount: 250.0,
       },
     ],
   },
@@ -637,6 +772,28 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-25 00:00:00",
+        amount: 1562.5,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-25 00:00:00",
+        amount: 1562.5,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-29 00:00:00",
+        amount: 1562.5,
+      },
+      {
+        reference: "PAYMENT 4",
+        date: "2026-04-29 00:00:00",
+        amount: 1562.5,
+      },
+    ],
   },
   {
     userId: "demo-bwg2020m00012",
@@ -708,6 +865,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-27 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-25 00:00:00",
+        amount: 550.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-24 00:00:00",
+        amount: 250.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2020m00013",
@@ -747,6 +921,18 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "10668.75",
         installmentsPaid: 12,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-03-03 00:00:00",
+        amount: 1000.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-04-11 00:00:00",
+        amount: 1200.0,
       },
     ],
   },
@@ -800,6 +986,18 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-04-04 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-05-02 00:00:00",
+        amount: 250.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2021m00001",
@@ -851,6 +1049,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-24 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-24 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-24 00:00:00",
+        amount: 250.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2021m00002",
@@ -900,6 +1115,18 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "2656.90",
         installmentsPaid: 12,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-03-31 00:00:00",
+        amount: 150.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-04-30 00:00:00",
+        amount: 150.0,
       },
     ],
   },
@@ -973,6 +1200,18 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-24 00:00:00",
+        amount: 1200.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-25 00:00:00",
+        amount: 600.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2021m00005",
@@ -1022,6 +1261,13 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "2656.90",
         installmentsPaid: 12,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-20 00:00:00",
+        amount: 125.0,
       },
     ],
   },
@@ -1075,6 +1321,13 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-04-23 00:00:00",
+        amount: 1000.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2021m00010",
@@ -1114,6 +1367,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "10668.75",
         installmentsPaid: 12,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-25 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-25 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-25 00:00:00",
+        amount: 250.0,
       },
     ],
   },
@@ -1167,6 +1437,28 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-28 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-24 00:00:00",
+        amount: 17.44,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-03-25 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 4",
+        date: "2026-04-25 00:00:00",
+        amount: 250.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2021m00012",
@@ -1208,6 +1500,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+    ],
   },
   {
     userId: "demo-bwg2021m00013",
@@ -1238,6 +1532,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsPaid: 12,
         installmentsTotal: 12,
       },
+    ],
+    payments: [
     ],
   },
   {
@@ -1288,6 +1584,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "2656.90",
         installmentsPaid: 12,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-26 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-26 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-28 00:00:00",
+        amount: 250.0,
       },
     ],
   },
@@ -1351,6 +1664,18 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-02 00:00:00",
+        amount: 300.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-05-02 00:00:00",
+        amount: 300.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2022m00004",
@@ -1412,6 +1737,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-26 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-26 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-24 00:00:00",
+        amount: 250.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2022m00005",
@@ -1431,6 +1773,13 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "2656.90",
         installmentsPaid: 4,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-05 00:00:00",
+        amount: 520.0,
       },
     ],
   },
@@ -1504,6 +1853,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-03-03 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-04-07 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-05-06 00:00:00",
+        amount: 250.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2022m00014",
@@ -1545,6 +1911,18 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-03-01 00:00:00",
+        amount: 850.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-05-05 00:00:00",
+        amount: 250.0,
+      },
+    ],
   },
   {
     userId: "demo-bwg2022m00016",
@@ -1584,6 +1962,13 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "2656.90",
         installmentsPaid: 12,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-04-23 00:00:00",
+        amount: 170.0,
       },
     ],
   },
@@ -1647,6 +2032,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+    ],
   },
   {
     userId: "demo-bwg2023m00002",
@@ -1666,6 +2053,23 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "2656.90",
         installmentsPaid: 6,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-02-27 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 2",
+        date: "2026-03-28 00:00:00",
+        amount: 250.0,
+      },
+      {
+        reference: "PAYMENT 3",
+        date: "2026-04-28 00:00:00",
+        amount: 250.0,
       },
     ],
   },
@@ -1739,6 +2143,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+    ],
   },
   {
     userId: "demo-bwg2024m00002",
@@ -1789,6 +2195,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsPaid: 12,
         installmentsTotal: 12,
       },
+    ],
+    payments: [
     ],
   },
   {
@@ -1841,6 +2249,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+    ],
   },
   {
     userId: "demo-bwg2025m00001",
@@ -1861,6 +2271,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsPaid: 10,
         installmentsTotal: 12,
       },
+    ],
+    payments: [
     ],
   },
   {
@@ -1913,6 +2325,8 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         installmentsTotal: 12,
       },
     ],
+    payments: [
+    ],
   },
   {
     userId: "demo-bwg2025m00003",
@@ -1962,6 +2376,13 @@ export const DEMO_ACCOUNTS: ReadonlyArray<DemoAccount> = [
         currentCashoutValue: "2656.90",
         installmentsPaid: 12,
         installmentsTotal: 12,
+      },
+    ],
+    payments: [
+      {
+        reference: "PAYMENT 1",
+        date: "2026-05-07 00:00:00",
+        amount: 3547.4,
       },
     ],
   },

@@ -127,6 +127,18 @@ for sheet_name in member_sheets:
                 "instalmentsPaid": int(instalments_paid) if instalments_paid else 0,
             })
     
+    # Extract Payments from Account Notes
+    member["payments"] = []
+    # Payments typically start around row 75
+    for row in ws.iter_rows(min_row=75, max_row=100, values_only=True):
+        if row[0] and str(row[0]).startswith("PAYMENT"):
+            if row[2] is not None:
+                member["payments"].append({
+                    "reference": str(row[0]),
+                    "date": str(row[1]) if row[1] else None,
+                    "amount": round(float(row[2]), 2) if row[2] else 0.0
+                })
+    
     members.append(member)
 
 # ── Token Installments and Fees ──

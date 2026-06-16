@@ -27,6 +27,12 @@ lines.append("// Cashout prices as of 2025-12-14 (latest weekly update)")
 lines.append("// Token counts: instalment + carry-over from individual member sheets")
 lines.append("// =============================================================================")
 lines.append("")
+lines.append("export interface PaymentData {")
+lines.append("  readonly reference: string;")
+lines.append("  readonly date: string | null;")
+lines.append("  readonly amount: number;")
+lines.append("}")
+lines.append("")
 lines.append("export interface DemoAccount {")
 lines.append("  readonly userId: string;")
 lines.append("  readonly membershipNo: string;")
@@ -36,6 +42,7 @@ lines.append("  readonly role: RoleType;")
 lines.append("  readonly password: string;")
 lines.append("  readonly accountValue: string;")
 lines.append("  readonly tokens: ReadonlyArray<TokenCardData>;")
+lines.append("  readonly payments: ReadonlyArray<PaymentData>;")
 lines.append("}")
 lines.append("")
 lines.append("// Current weekly cashout prices (ZAR) — updated 2025-12-14")
@@ -152,6 +159,18 @@ for m in members:
         lines.append("      },")
     
     lines.append("    ],")
+    
+    # Add payments array
+    lines.append("    payments: [")
+    for p in m.get("payments", []):
+        date_str = f'"{p["date"]}"' if p["date"] else "null"
+        lines.append("      {")
+        lines.append(f'        reference: "{p["reference"]}",')
+        lines.append(f'        date: {date_str},')
+        lines.append(f'        amount: {p["amount"]},')
+        lines.append("      },")
+    lines.append("    ],")
+    
     lines.append("  },")
 
 lines.append("];")

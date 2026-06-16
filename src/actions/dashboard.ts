@@ -81,67 +81,40 @@ function generateDevGrowthData(): ReadonlyArray<PortfolioGrowthPoint> {
   return points;
 }
 
-function generateDevLedger(): ReadonlyArray<LedgerRow> {
+function generateDevLedger(membershipNo: string): ReadonlyArray<LedgerRow> {
+  const devUser = DEMO_ACCOUNTS.find((u) => u.membershipNo === membershipNo);
+  if (!devUser || !devUser.payments || devUser.payments.length === 0) {
+    return [];
+  }
+
   const entries: LedgerRow[] = [];
-  const baseDate = new Date("2026-06-01");
-  let balance = 10125.00;
+  let balance = new Decimal(0);
 
-  const txTemplates: ReadonlyArray<{
-    readonly type: string;
-    readonly amountRange: readonly [number, number];
-    readonly token: string | null;
-  }> = [
-    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
-    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
-    { type: "ADMIN_FEE", amountRange: [22.13, 22.13], token: "VCC-2026-GOLD-00142" },
-    { type: "PROFIT_FEE", amountRange: [21.88, 21.88], token: "VCC-2026-GOLD-00142" },
-    { type: "CREDIT_APPLIED", amountRange: [44.01, 44.01], token: null },
-    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
-    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
-    { type: "PENALTY", amountRange: [37.50, 37.50], token: "VCC-2026-GOLD-00142" },
-    { type: "ADMIN_FEE", amountRange: [11.06, 11.06], token: "VCC-2026-SILVER-00318" },
-    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
-    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
-    { type: "CREDIT_APPLIED", amountRange: [18.75, 18.75], token: null },
-    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
-    { type: "ADMIN_FEE", amountRange: [22.13, 22.13], token: "VCC-2026-GOLD-00142" },
-    { type: "PROFIT_FEE", amountRange: [21.88, 21.88], token: "VCC-2026-GOLD-00142" },
-    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
-    { type: "ADMIN_FEE", amountRange: [11.06, 11.06], token: "VCC-2026-SILVER-00318" },
-    { type: "PROFIT_FEE", amountRange: [11.25, 11.25], token: "VCC-2026-SILVER-00318" },
-    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
-    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
-    { type: "PENALTY", amountRange: [18.75, 18.75], token: "VCC-2026-SILVER-00318" },
-    { type: "CREDIT_APPLIED", amountRange: [56.25, 56.25], token: null },
-    { type: "PAYMENT", amountRange: [250, 250], token: "VCC-2026-GOLD-00142" },
-    { type: "PAYMENT", amountRange: [125, 125], token: "VCC-2026-SILVER-00318" },
-    { type: "ADMIN_FEE", amountRange: [22.13, 22.13], token: "VCC-2026-GOLD-00142" },
-  ];
+  // We want to process payments in chronological order to build up the balance,
+  // but then return them in descending order (newest first).
+  // Assuming payments from Excel are in some order, let's sort them ascending by date first if possible.
+  const sortedPayments = [...devUser.payments].sort((a, b) => {
+    if (!a.date || !b.date) return 0;
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+  });
 
-  for (let entryIndex = 0; entryIndex < txTemplates.length; entryIndex++) {
-    const template = txTemplates[entryIndex];
-    const dateObj = new Date(baseDate);
-    dateObj.setDate(dateObj.getDate() - entryIndex * 2);
-    const amount = template.amountRange[0];
-
-    if (template.type === "PAYMENT" || template.type === "CREDIT_APPLIED") {
-      balance = parseFloat(new Decimal(balance.toString()).plus(new Decimal(amount.toString())).toFixed(2));
-    } else {
-      balance = parseFloat(new Decimal(balance.toString()).minus(new Decimal(amount.toString())).toFixed(2));
-    }
-
+  for (let i = 0; i < sortedPayments.length; i++) {
+    const payment = sortedPayments[i];
+    balance = balance.plus(new Decimal(payment.amount));
+    
     entries.push({
-      txId: `dev-tx-${String(entryIndex + 1).padStart(4, "0")}`,
-      txDate: dateObj.toISOString(),
-      type: template.type,
-      amount: amount.toFixed(2),
-      tokenSerial: template.token,
-      referenceNote: null,
+      txId: `tx-${payment.reference.replace(/\s+/g, '-').toLowerCase()}-${i}`,
+      txDate: payment.date || new Date().toISOString(),
+      type: "PAYMENT",
+      amount: new Decimal(payment.amount).toFixed(2),
+      tokenSerial: null, // We could try to match this to a token if we had logic for it
+      referenceNote: payment.reference,
       balanceSnapshot: balance.toFixed(2),
     });
   }
 
-  return entries;
+  // Reverse to get descending order
+  return entries.reverse();
 }
 
 // ---------------------------------------------------------------------------
@@ -314,14 +287,14 @@ export async function getLedgerPage(
   page: number = 1,
   pageSize: number = 15
 ): Promise<LedgerPage> {
-  await requireSession();
+  const session = await requireSession();
   const db = await tryGetPrisma();
 
   const safePage = Math.max(1, Math.floor(page));
   const safePageSize = Math.min(50, Math.max(5, Math.floor(pageSize)));
 
   if (!db) {
-    const allEntries = generateDevLedger();
+    const allEntries = generateDevLedger(session.membershipNo);
     const skip = (safePage - 1) * safePageSize;
     const pageEntries = allEntries.slice(skip, skip + safePageSize);
     return {
@@ -333,7 +306,6 @@ export async function getLedgerPage(
     };
   }
 
-  const session = await requireSession();
   const skip = (safePage - 1) * safePageSize;
 
   const [rows, totalRows] = await Promise.all([

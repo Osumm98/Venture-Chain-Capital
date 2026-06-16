@@ -1367,7 +1367,8 @@
       "accountContributions": 0,
       "accountFees": 30000,
       "accountContributionsAfterFees": -2445,
-      "instalmentTokenDetails": []
+      "instalmentTokenDetails": [],
+      "payments": []
     },
     {
       "membershipNo": "BWG2020M00001",
@@ -1441,6 +1442,23 @@
           "tokenNumber": "VCC2020GT00002",
           "instalmentsPaid": 5
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-25 00:00:00",
+          "amount": 500.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-26 00:00:00",
+          "amount": 500.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-25 00:00:00",
+          "amount": 500.0
+        }
       ]
     },
     {
@@ -1510,7 +1528,8 @@
           "tokenNumber": "VCC2021ST00007",
           "instalmentsPaid": 0
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2020M00003",
@@ -1589,6 +1608,23 @@
           "tokenNumber": "VCC2024PT00004",
           "instalmentsPaid": 5
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-26 00:00:00",
+          "amount": 1500.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-05-02 00:00:00",
+          "amount": 2000.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-05-11 00:00:00",
+          "amount": 2000.0
+        }
       ]
     },
     {
@@ -1663,6 +1699,23 @@
           "tokenNumber": "VCC2020GT00006",
           "instalmentsPaid": 5
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-03-02 00:00:00",
+          "amount": 268.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-04-01 00:00:00",
+          "amount": 268.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-05-02 00:00:00",
+          "amount": 268.0
+        }
       ]
     },
     {
@@ -1731,6 +1784,23 @@
           "tier": "GOLD",
           "tokenNumber": "VCC2020GT00007",
           "instalmentsPaid": 5
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-28 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-04-01 00:00:00",
+          "amount": 268.04
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-05-02 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -1806,6 +1876,23 @@
           "tokenNumber": "VCC2022GT00036",
           "instalmentsPaid": 5
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-19 00:00:00",
+          "amount": 1000.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-19 00:00:00",
+          "amount": 1100.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-05-02 00:00:00",
+          "amount": 500.0
+        }
       ]
     },
     {
@@ -1880,6 +1967,28 @@
           "tokenNumber": "VCC2020GT00011",
           "instalmentsPaid": 5
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-25 00:00:00",
+          "amount": 500.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-26 00:00:00",
+          "amount": 500.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-25 00:00:00",
+          "amount": 575.0
+        },
+        {
+          "reference": "PAYMENT 4",
+          "date": "2026-04-25 00:00:00",
+          "amount": 500.0
+        }
       ]
     },
     {
@@ -1948,6 +2057,23 @@
           "tier": "GOLD",
           "tokenNumber": "VCC2020GT00013",
           "instalmentsPaid": 5
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-03-02 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-31 00:00:00",
+          "amount": 482.56
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-25 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -2033,6 +2159,28 @@
           "tokenNumber": "VCC2021PT00001",
           "instalmentsPaid": 6
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-25 00:00:00",
+          "amount": 1562.5
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-25 00:00:00",
+          "amount": 1562.5
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-29 00:00:00",
+          "amount": 1562.5
+        },
+        {
+          "reference": "PAYMENT 4",
+          "date": "2026-04-29 00:00:00",
+          "amount": 1562.5
+        }
       ]
     },
     {
@@ -2101,6 +2249,23 @@
           "tier": "GOLD",
           "tokenNumber": "VCC2020GT00015",
           "instalmentsPaid": 5
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-27 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-25 00:00:00",
+          "amount": 550.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-24 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -2171,6 +2336,18 @@
           "tokenNumber": "VCC2020GT00016",
           "instalmentsPaid": 7
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-03-03 00:00:00",
+          "amount": 1000.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-04-11 00:00:00",
+          "amount": 1200.0
+        }
       ]
     },
     {
@@ -2234,7 +2411,19 @@
       "accountContributions": 0,
       "accountFees": 1250,
       "accountContributionsAfterFees": -265.5,
-      "instalmentTokenDetails": []
+      "instalmentTokenDetails": [],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-04-04 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-05-02 00:00:00",
+          "amount": 250.0
+        }
+      ]
     },
     {
       "membershipNo": "BWG2021M00001",
@@ -2302,6 +2491,23 @@
           "tier": "GOLD",
           "tokenNumber": "VCC2021GT00001",
           "instalmentsPaid": 7
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-24 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-24 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-24 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -2376,6 +2582,18 @@
           "tier": "SILVER",
           "tokenNumber": "VCC2025ST00006",
           "instalmentsPaid": 6
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-03-31 00:00:00",
+          "amount": 150.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-04-30 00:00:00",
+          "amount": 150.0
         }
       ]
     },
@@ -2456,6 +2674,18 @@
           "tokenNumber": "VCC2022GT00034",
           "instalmentsPaid": 4
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-24 00:00:00",
+          "amount": 1200.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-25 00:00:00",
+          "amount": 600.0
+        }
       ]
     },
     {
@@ -2524,6 +2754,13 @@
           "tier": "SILVER",
           "tokenNumber": "VCC2021ST00003",
           "instalmentsPaid": 5
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-20 00:00:00",
+          "amount": 125.0
         }
       ]
     },
@@ -2594,6 +2831,13 @@
           "tokenNumber": "VCC2021ST00005",
           "instalmentsPaid": 12
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-04-23 00:00:00",
+          "amount": 1000.0
+        }
       ]
     },
     {
@@ -2662,6 +2906,23 @@
           "tier": "GOLD",
           "tokenNumber": "VCC2022GT00040",
           "instalmentsPaid": 6
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-25 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-25 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-25 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -2732,6 +2993,28 @@
           "tokenNumber": "VCC2021GT00002",
           "instalmentsPaid": 5
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-28 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-24 00:00:00",
+          "amount": 17.44
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-03-25 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 4",
+          "date": "2026-04-25 00:00:00",
+          "amount": 250.0
+        }
       ]
     },
     {
@@ -2801,7 +3084,8 @@
           "tokenNumber": "VCC2021ST00008",
           "instalmentsPaid": 5
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2021M00013",
@@ -2870,7 +3154,8 @@
           "tokenNumber": "VCC2021ET00006",
           "instalmentsPaid": 4
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2022M00002",
@@ -2938,6 +3223,23 @@
           "tier": "SILVER",
           "tokenNumber": "VCC2022ST00002",
           "instalmentsPaid": 8
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-26 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-26 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-28 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -3013,6 +3315,18 @@
           "tokenNumber": "VCC2022ST00004",
           "instalmentsPaid": 3
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-02 00:00:00",
+          "amount": 300.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-05-02 00:00:00",
+          "amount": 300.0
+        }
       ]
     },
     {
@@ -3081,6 +3395,23 @@
           "tier": "GOLD",
           "tokenNumber": "VCC2022GT00029",
           "instalmentsPaid": 5
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-26 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-26 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-24 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -3151,6 +3482,13 @@
           "tokenNumber": "VCC2022GT00032",
           "instalmentsPaid": 4
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-05 00:00:00",
+          "amount": 520.0
+        }
       ]
     },
     {
@@ -3219,6 +3557,23 @@
           "tier": "GOLD",
           "tokenNumber": "VCC2022GT00038",
           "instalmentsPaid": 5
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-03-03 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-04-07 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-05-06 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -3289,6 +3644,18 @@
           "tokenNumber": "VCC2026GT00048",
           "instalmentsPaid": 5
         }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-03-01 00:00:00",
+          "amount": 850.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-05-05 00:00:00",
+          "amount": 250.0
+        }
       ]
     },
     {
@@ -3357,6 +3724,13 @@
           "tier": "SILVER",
           "tokenNumber": "VCC2022ST00010",
           "instalmentsPaid": 6
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-04-23 00:00:00",
+          "amount": 170.0
         }
       ]
     },
@@ -3437,7 +3811,8 @@
           "tokenNumber": "VCC2025GT00055",
           "instalmentsPaid": 12
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2023M00002",
@@ -3505,6 +3880,23 @@
           "tier": "GOLD",
           "tokenNumber": "VCC2023GT00002",
           "instalmentsPaid": 6
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-02-27 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 2",
+          "date": "2026-03-28 00:00:00",
+          "amount": 250.0
+        },
+        {
+          "reference": "PAYMENT 3",
+          "date": "2026-04-28 00:00:00",
+          "amount": 250.0
         }
       ]
     },
@@ -3575,7 +3967,8 @@
           "tokenNumber": "VCC2024PT00010",
           "instalmentsPaid": 1
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2024M00002",
@@ -3644,7 +4037,8 @@
           "tokenNumber": "VCC2024GT00036",
           "instalmentsPaid": 7
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2024M00003",
@@ -3713,7 +4107,8 @@
           "tokenNumber": "VCC2024GT00037",
           "instalmentsPaid": 7
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2025M00001",
@@ -3782,7 +4177,8 @@
           "tokenNumber": "VCC2025ET00011",
           "instalmentsPaid": 10
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2025M00002",
@@ -3856,7 +4252,8 @@
           "tokenNumber": "VCC2025GT00057",
           "instalmentsPaid": 1
         }
-      ]
+      ],
+      "payments": []
     },
     {
       "membershipNo": "BWG2025M00003",
@@ -3929,6 +4326,13 @@
           "tier": null,
           "tokenNumber": "VCC2025GT00059",
           "instalmentsPaid": 5
+        }
+      ],
+      "payments": [
+        {
+          "reference": "PAYMENT 1",
+          "date": "2026-05-07 00:00:00",
+          "amount": 3547.4
         }
       ]
     }
