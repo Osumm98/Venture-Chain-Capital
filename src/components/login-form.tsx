@@ -4,6 +4,7 @@ import { useState, type FormEvent, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import gsap from "gsap";
+import { loginUser } from "@/actions/auth";
 
 // ---------------------------------------------------------------------------
 // Parallax Background & Meteor Shower
@@ -208,23 +209,17 @@ export function LoginForm(): React.JSX.Element {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ membershipNo, password }),
-      });
+      const result = await loginUser(membershipNo, password);
 
-      const responseData = await response.json() as { success?: boolean; error?: string };
-
-      if (!response.ok) {
-        setError(responseData.error ?? "Login failed. Please try again.");
+      if (!result.success) {
+        setError(result.error ?? "Login failed. Please try again.");
         return;
       }
 
       router.push(redirectTo);
       router.refresh();
     } catch {
-      setError("Network error. Please check your connection.");
+      setError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false);
     }

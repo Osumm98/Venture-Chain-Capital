@@ -134,14 +134,14 @@ export function Footer(): React.JSX.Element {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 sm:gap-12 mb-10">
           {/* Brand — takes 2 cols */}
           <div className="sm:col-span-2 md:col-span-2">
-            <div className="mb-6 overflow-visible">
+            <div className="mb-4">
               <a href="/" aria-label="Venture Chain Capital">
-                <div className="relative w-[200px] sm:w-[280px] h-[60px] sm:h-[80px] origin-left">
+                <div className="relative w-[300px] sm:w-[400px] h-[80px] sm:h-[100px]">
                   <Image
                     src="/images/vcc-logo-footer.png"
                     alt="Venture Chain Capital Logo"
                     fill
-                    className="object-contain logo-adaptive scale-[2] origin-left"
+                    className="object-contain object-left logo-adaptive"
                   />
                 </div>
               </a>
