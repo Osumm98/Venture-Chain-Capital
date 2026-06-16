@@ -159,6 +159,29 @@ async function tryGetPrisma(): Promise<typeof import("@/lib/prisma").prisma | nu
 }
 
 // ---------------------------------------------------------------------------
+// Demo data helper — always works, returns data from the Excel spreadsheet
+// ---------------------------------------------------------------------------
+
+function getDemoSummary(session: { displayName: string; membershipNo: string }): DashboardSummary {
+  const devUser = DEMO_ACCOUNTS.find(u => u.membershipNo === session.membershipNo);
+  const userTokens = devUser?.tokens ?? [];
+  const accountValue = devUser?.accountValue ?? "0.00";
+  return {
+    displayName: session.displayName,
+    membershipNo: session.membershipNo,
+    totalAccountValue: accountValue,
+    totalTokens: userTokens.length,
+    activeTiers: [...new Set(userTokens.map((t) => t.tier))],
+    creditBalance: "0.00",
+  };
+}
+
+function getDemoTokens(membershipNo: string): ReadonlyArray<TokenCardData> {
+  const devUser = DEMO_ACCOUNTS.find(u => u.membershipNo === membershipNo);
+  return devUser?.tokens ?? [];
+}
+
+// ---------------------------------------------------------------------------
 // getDashboardSummary — Hero metrics for the welcome header
 // ---------------------------------------------------------------------------
 
@@ -166,22 +189,10 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
   const session = await requireSession();
   const db = await tryGetPrisma();
 
-  if (!db) {
-    // Dev fallback — uses real data from VCC 2026 Master Spreadsheet
-    const devUser = DEMO_ACCOUNTS.find(u => u.membershipNo === session.membershipNo);
-    const userTokens = devUser?.tokens ?? [];
-    const accountValue = devUser?.accountValue ?? "0.00";
-    return {
-      displayName: session.displayName,
-      membershipNo: session.membershipNo,
-      totalAccountValue: accountValue,
-      totalTokens: userTokens.length,
-      activeTiers: [...new Set(userTokens.map((t) => t.tier))],
-      creditBalance: "0.00",
-    };
-  }
+  if (!db) return getDemoSummary(session);
 
-  const user = await db.user.findUniqueOrThrow({
+  // Try DB first, fall back to demo data if user not found
+  const user = await db.user.findUnique({
     where: { membershipNo: session.membershipNo },
     include: {
       tokens: {
@@ -190,6 +201,8 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
       },
     },
   });
+
+  if (!user) return getDemoSummary(session);
 
   let totalValue = new Decimal(0);
   const tierSet = new Set<string>();
@@ -231,20 +244,18 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
 // ---------------------------------------------------------------------------
 
 export async function getActiveTokens(): Promise<ReadonlyArray<TokenCardData>> {
-  await requireSession();
+  const session = await requireSession();
   const db = await tryGetPrisma();
 
-  if (!db) {
-    const session = await requireSession();
-    const devUser = DEMO_ACCOUNTS.find(u => u.membershipNo === session.membershipNo);
-    return devUser?.tokens || [];
-  }
+  if (!db) return getDemoTokens(session.membershipNo);
 
-  const session = await requireSession();
   const tokens = await db.memberToken.findMany({
     where: { membershipNo: session.membershipNo, status: "ACTIVE" },
     orderBy: { issuedAt: "desc" },
   });
+
+  // If user has no tokens in DB, fall back to demo data
+  if (tokens.length === 0) return getDemoTokens(session.membershipNo);
 
   const tokenCards: TokenCardData[] = [];
 
@@ -352,18 +363,18 @@ export async function getLedgerPage(
 // ---------------------------------------------------------------------------
 
 export async function getPortfolioGrowth(): Promise<ReadonlyArray<PortfolioGrowthPoint>> {
-  await requireSession();
+  const session = await requireSession();
   const db = await tryGetPrisma();
 
   if (!db) return generateDevGrowthData();
 
-  const session = await requireSession();
   const tokens = await db.memberToken.findMany({
     where: { membershipNo: session.membershipNo, status: "ACTIVE" },
     select: { tier: true },
   });
 
-  if (tokens.length === 0) return [];
+  // If user has no tokens in DB, show growth data from demo
+  if (tokens.length === 0) return generateDevGrowthData();
 
   const tiers = [...new Set(tokens.map((t) => t.tier))];
   const pricingHistory = await db.tokenPricingHistory.findMany({
