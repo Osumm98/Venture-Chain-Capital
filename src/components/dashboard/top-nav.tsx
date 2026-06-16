@@ -38,6 +38,7 @@ export function TopNav(): React.JSX.Element {
   const searchablePages = [
     { name: "Dashboard", url: "/dashboard" },
     { name: "Markets", url: "/dashboard/markets" },
+    { name: "News", url: "/dashboard/news" },
     { name: "Profile", url: "/dashboard/profile" },
     { name: "Ledger", url: "/dashboard/ledger" },
     { name: "Admin Hub", url: "/admin" },
