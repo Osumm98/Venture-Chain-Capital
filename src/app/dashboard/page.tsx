@@ -17,8 +17,9 @@ import {
 import { WelcomeHeader } from "@/components/dashboard/welcome-header";
 import { MetricCards } from "@/components/dashboard/metric-cards";
 import { PortfolioChart } from "@/components/dashboard/portfolio-chart";
-import { AllocationDonut, TIER_CONFIG } from "@/components/dashboard/allocation-donut";
+import { AllocationDonut } from "@/components/dashboard/allocation-donut";
 import type { AllocationSlice } from "@/components/dashboard/allocation-donut";
+import { TIER_CONFIG } from "@/lib/tier-config";
 import { LedgerGrid } from "@/components/dashboard/ledger-grid";
 import { GamificationBadge } from "@/components/dashboard/gamification-badge";
 

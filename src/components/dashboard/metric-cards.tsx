@@ -8,9 +8,8 @@ export function MetricCards({
 }: {
   readonly summary: DashboardSummary;
 }): React.JSX.Element {
-  // Temporary mock data for the trend
-  const trendPercent = "+12.4%";
-  const isPositive = true;
+  const trendPercent = summary.portfolioGrowthPercent;
+  const isPositive = trendPercent.startsWith("+");
 
   // Determine top tier badge style based on active packages
   // Mock logic assuming they have Gold/Platinum based on count

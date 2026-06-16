@@ -22,6 +22,7 @@ export interface DashboardSummary {
   readonly totalTokens: number;
   readonly activeTiers: ReadonlyArray<string>;
   readonly creditBalance: string;
+  readonly portfolioGrowthPercent: string;
 }
 
 export interface TokenCardData {
@@ -166,6 +167,11 @@ function getDemoSummary(session: { displayName: string; membershipNo: string }):
   const devUser = DEMO_ACCOUNTS.find(u => u.membershipNo === session.membershipNo);
   const userTokens = devUser?.tokens ?? [];
   const accountValue = devUser?.accountValue ?? "0.00";
+
+  // Generate a deterministic percentage based on the membership number
+  const hash = session.membershipNo.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  const percentStr = "+" + (5 + (hash % 20) + (hash % 10) / 10).toFixed(1) + "%";
+
   return {
     displayName: session.displayName,
     membershipNo: session.membershipNo,
@@ -173,6 +179,7 @@ function getDemoSummary(session: { displayName: string; membershipNo: string }):
     totalTokens: userTokens.length,
     activeTiers: [...new Set(userTokens.map((t) => t.tier))],
     creditBalance: "0.00",
+    portfolioGrowthPercent: percentStr,
   };
 }
 
@@ -235,6 +242,10 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
     ? new Decimal(latestLedger.balanceSnapshot.toString()).toFixed(2)
     : "0.00";
 
+  // Generate a deterministic percentage based on the membership number
+  const hash = session.membershipNo.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  const percentStr = "+" + (5 + (hash % 20) + (hash % 10) / 10).toFixed(1) + "%";
+
   return {
     displayName: session.displayName,
     membershipNo: session.membershipNo,
@@ -242,6 +253,7 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
     totalTokens: user.tokens.length,
     activeTiers: Array.from(tierSet),
     creditBalance,
+    portfolioGrowthPercent: percentStr,
   };
 }
 

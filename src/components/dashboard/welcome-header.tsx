@@ -8,8 +8,7 @@ export function WelcomeHeader({
   readonly summary: DashboardSummary;
 }): React.JSX.Element {
   const firstName = summary.displayName.split(" ")[0];
-  // Temporary mock data for trend
-  const trendPercent = "+12.4%";
+  const trendPercent = summary.portfolioGrowthPercent;
 
   return (
     <div className="mb-8 mt-2">
