@@ -19,20 +19,29 @@ interface UserContextType {
 }
 
 const defaultProfile: UserProfile = {
-  firstName: "Thabiso",
-  lastName: "M",
-  email: "thabiso@example.com",
-  phone: "+27 82 555 0199",
+  firstName: "Member",
+  lastName: "",
+  email: "",
+  phone: "+27 00 000 0000",
   country: "South Africa",
-  bio: "Tech entrepreneur and early-stage investor.",
+  bio: "",
   avatarUrl: null,
-  tier: "Platinum",
+  tier: "Entry",
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export function UserProvider({ children }: { readonly children: ReactNode }): React.JSX.Element {
-  const [profile, setProfile] = useState<UserProfile>(defaultProfile);
+export function UserProvider({
+  children,
+  initialProfile,
+}: {
+  readonly children: ReactNode;
+  readonly initialProfile?: Partial<UserProfile>;
+}): React.JSX.Element {
+  const [profile, setProfile] = useState<UserProfile>({
+    ...defaultProfile,
+    ...initialProfile,
+  });
 
   const updateProfile = (updates: Partial<UserProfile>) => {
     setProfile((prev) => ({ ...prev, ...updates }));

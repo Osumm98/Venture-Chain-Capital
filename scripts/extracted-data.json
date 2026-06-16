@@ -1,0 +1,3936 @@
+﻿{
+  "subscriptionPrices": {
+    "ENTRY": 62.5,
+    "SILVER": 125.0,
+    "GOLD": 250.0,
+    "PLATINUM": 1000.0,
+    "DIAMOND": 2500.0,
+    "GROUP_1": 750.0,
+    "GROUP_2": 2250.0,
+    "GROUP_3": 5000.0
+  },
+  "adminFees": {
+    "ENTRY": 9.75,
+    "SILVER": 9.5,
+    "GOLD": 8.85,
+    "PLATINUM": 8.5,
+    "DIAMOND": 8.15,
+    "GROUP_1": 8.6,
+    "GROUP_2": 8.25,
+    "GROUP_3": 8.0
+  },
+  "profitFees": {
+    "ENTRY": 9.15,
+    "SILVER": 9.0,
+    "GOLD": 8.75,
+    "PLATINUM": 8.5,
+    "DIAMOND": 8.15,
+    "GROUP_1": 8.75,
+    "GROUP_2": 8.25,
+    "GROUP_3": 8.0
+  },
+  "cashoutPrices": {
+    "ENTRY": 657.56,
+    "SILVER": 1318.81,
+    "GOLD": 2656.9,
+    "PLATINUM": 10668.75,
+    "DIAMOND": 26773.91,
+    "GROUP_1": 7993.2,
+    "GROUP_2": 24070.28,
+    "GROUP_3": 53635.26
+  },
+  "instalmentTokens": {
+    "BWG2020M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00002": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00003": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00004": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00005": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00006": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00008": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00010": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00011": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00012": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00013": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00014": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00002": {
+      "ENTRY": 1,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00003": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00004": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00005": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00007": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00008": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00010": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00011": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00012": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00013": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00002": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00003": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00004": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00005": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00011": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00014": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00016": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00002": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00000": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 1,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00002": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00003": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00001": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00002": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00003": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00004": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    }
+  },
+  "carryOverTokens": {
+    "BWG2020M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 1,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00002": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00003": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 3,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00004": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00005": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00006": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 2,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00008": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 1,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00009": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00010": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00011": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00012": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 3,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00013": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00014": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00002": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00003": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00004": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00005": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 3,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00007": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00008": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00010": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00011": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00012": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00013": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00014": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 3,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00002": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00003": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00004": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 3,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00005": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 3,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00008": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00011": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 3,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00014": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00016": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00001": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00002": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00001": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00002": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00003": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00000": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00002": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00003": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00004": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    }
+  },
+  "totalActiveTokens": {
+    "BWG2020M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 1,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00002": {
+      "ENTRY": 1,
+      "SILVER": 1,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00003": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 5,
+      "PLATINUM": 2,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00004": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 3,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00005": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00006": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 2,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00008": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 1,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00010": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00011": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 3,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00012": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 4,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00013": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00014": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00002": {
+      "ENTRY": 1,
+      "SILVER": 1,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00003": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00004": {
+      "ENTRY": 0,
+      "SILVER": 2,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00005": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 3,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00007": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00008": {
+      "ENTRY": 1,
+      "SILVER": 1,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00010": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00011": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00012": {
+      "ENTRY": 0,
+      "SILVER": 2,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2021M00013": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00001": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 4,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00002": {
+      "ENTRY": 0,
+      "SILVER": 2,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00003": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00004": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 4,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00005": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 4,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00011": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 4,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00014": {
+      "ENTRY": 1,
+      "SILVER": 1,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2022M00016": {
+      "ENTRY": 1,
+      "SILVER": 1,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00001": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 4,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2023M00002": {
+      "ENTRY": 0,
+      "SILVER": 1,
+      "GOLD": 3,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00001": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 2,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2020M00000": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 1,
+      "PLATINUM": 0,
+      "DIAMOND": 1,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00002": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2024M00003": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00001": {
+      "ENTRY": 1,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00002": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00003": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 2,
+      "PLATINUM": 0,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    },
+    "BWG2025M00004": {
+      "ENTRY": 0,
+      "SILVER": 0,
+      "GOLD": 0,
+      "PLATINUM": 1,
+      "DIAMOND": 0,
+      "GROUP_1": 0,
+      "GROUP_2": 0,
+      "GROUP_3": 0
+    }
+  },
+  "members": [
+    {
+      "membershipNo": "BWG2020M00000",
+      "firstName": "VENTURE CHAIN",
+      "lastName": "CAPITAL",
+      "dateOfMembership": "2024-01-01 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 62837.325,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 3,
+          "total": 3,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 30000,
+      "accountContributionsAfterFees": -2445,
+      "instalmentTokenDetails": []
+    },
+    {
+      "membershipNo": "BWG2020M00001",
+      "firstName": "KGOMOTSO ELIAS",
+      "lastName": "NKABINDE",
+      "dateOfMembership": "2020-06-11 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 33283.918,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 2,
+          "total": 4,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 2,
+          "total": 2,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 2500,
+      "accountContributionsAfterFees": -531,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00001",
+          "instalmentsPaid": 5
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2020GT00002",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00002",
+      "firstName": "SECHABA RICHARD",
+      "lastName": "MOKOENA",
+      "dateOfMembership": "2020-06-15 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 1318.8068,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 0,
+      "accountContributionsAfterFees": -142.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2021ST00007",
+          "instalmentsPaid": 0
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00003",
+      "firstName": "OMPHILE NEO",
+      "lastName": "MAKIRI",
+      "dateOfMembership": "2020-06-15 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 15982.5556,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 0,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 7500,
+      "accountContributionsAfterFees": -1551,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2025GT00053",
+          "instalmentsPaid": 5
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2025GT00054",
+          "instalmentsPaid": 5
+        },
+        {
+          "tier": "PLATINUM",
+          "tokenNumber": "VCC2024PT00004",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00004",
+      "firstName": "THANDO",
+      "lastName": "KHOZA",
+      "dateOfMembership": "2020-06-11 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 20615.82369,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 2,
+          "total": 3,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 2625,
+      "accountContributionsAfterFees": -408,
+      "instalmentTokenDetails": [
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2021ST00001",
+          "instalmentsPaid": 11
+        },
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00006",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00005",
+      "firstName": "KHOTHATSO",
+      "lastName": "DHLAMINI",
+      "dateOfMembership": "2020-06-12 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 16640.11589,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1250,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00007",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00006",
+      "firstName": "BHABILE",
+      "lastName": "MITHANI",
+      "dateOfMembership": "2020-06-12 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 5313.802,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 0,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 2500,
+      "accountContributionsAfterFees": -531,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00008",
+          "instalmentsPaid": 5
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2022GT00036",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00008",
+      "firstName": "ITUMELENG",
+      "lastName": "NKABINDE",
+      "dateOfMembership": "2020-06-11 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 29308.2102,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 1,
+          "total": 3,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 2,
+          "total": 2,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 2500,
+      "accountContributionsAfterFees": -531,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00010",
+          "instalmentsPaid": 5
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2020GT00011",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00010",
+      "firstName": "SYDNEY",
+      "lastName": "PHILLIPS",
+      "dateOfMembership": "2020-06-12 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 16640.11589,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1250,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00013",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00011",
+      "firstName": "MHLELI",
+      "lastName": "MASONDO",
+      "dateOfMembership": "2020-06-12 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 45925.35247,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 1,
+          "carryOver": 2,
+          "total": 3,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 2,
+          "total": 4,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 1,
+          "carryOver": 2,
+          "total": 3,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 9375,
+      "accountContributionsAfterFees": -1624.125,
+      "instalmentTokenDetails": [
+        {
+          "tier": "ENTRY",
+          "tokenNumber": "VCC2021ET00004",
+          "instalmentsPaid": 6
+        },
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00014",
+          "instalmentsPaid": 6
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2022GT00027",
+          "instalmentsPaid": 6
+        },
+        {
+          "tier": "PLATINUM",
+          "tokenNumber": "VCC2021PT00001",
+          "instalmentsPaid": 6
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00012",
+      "firstName": "TANKISO",
+      "lastName": "MAKHETHA",
+      "dateOfMembership": "2020-06-18 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 12603.97109,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 3,
+          "total": 4,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1250,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00015",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00013",
+      "firstName": "MMUSO RICHARD",
+      "lastName": "MAFISA",
+      "dateOfMembership": "2020-08-18 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 15982.5556,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1750,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2020GT00016",
+          "instalmentsPaid": 7
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2020M00014",
+      "firstName": "EDZANI",
+      "lastName": "DAVHANA",
+      "dateOfMembership": "2020-08-18 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 16640.11589,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1250,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": []
+    },
+    {
+      "membershipNo": "BWG2021M00001",
+      "firstName": "SANELE",
+      "lastName": "SHIBE",
+      "dateOfMembership": "2021-01-25 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 16640.11589,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1750,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2021GT00001",
+          "instalmentsPaid": 7
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2021M00002",
+      "firstName": "ERICA",
+      "lastName": "MTHETHWA",
+      "dateOfMembership": "2021-02-14 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 5952.07489,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1125,
+      "accountContributionsAfterFees": -215.625,
+      "instalmentTokenDetails": [
+        {
+          "tier": "ENTRY",
+          "tokenNumber": "VCC2021ET00001",
+          "instalmentsPaid": 6
+        },
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2025ST00006",
+          "instalmentsPaid": 6
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2021M00003",
+      "firstName": "ABRAM",
+      "lastName": "MAGOOA",
+      "dateOfMembership": "2021-03-03 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "DEACTIVATED",
+      "accountValue": 11942.72458,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 2,
+          "total": 4,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 2250,
+      "accountContributionsAfterFees": -604.125,
+      "instalmentTokenDetails": [
+        {
+          "tier": "ENTRY",
+          "tokenNumber": "VCC2021ET00002",
+          "instalmentsPaid": 4
+        },
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2022GT00033",
+          "instalmentsPaid": 4
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2022GT00034",
+          "instalmentsPaid": 4
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2021M00005",
+      "firstName": "MARTHA TSHEDI",
+      "lastName": "MAKIRI",
+      "dateOfMembership": "2021-03-29 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 9289.5098,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 3,
+          "total": 3,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 625,
+      "accountContributionsAfterFees": -142.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2021ST00003",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2021M00008",
+      "firstName": "NOKUKHANYA",
+      "lastName": "DLAMINI",
+      "dateOfMembership": "2021-05-16 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 7290.16909,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 2,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1500,
+      "accountContributionsAfterFees": -142.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2021ST00005",
+          "instalmentsPaid": 12
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2021M00010",
+      "firstName": "ASAVELA",
+      "lastName": "LUDIDI",
+      "dateOfMembership": "2021-06-26 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 14644.4614,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1500,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2022GT00040",
+          "instalmentsPaid": 6
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2021M00011",
+      "firstName": "JUNIOR",
+      "lastName": "MASHIGO",
+      "dateOfMembership": "2021-07-28 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 16640.11589,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1250,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2021GT00002",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2021M00012",
+      "firstName": "SUSAN",
+      "lastName": "MONYAI",
+      "dateOfMembership": "2021-08-29 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 5294.5146,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 625,
+      "accountContributionsAfterFees": -142.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2021ST00008",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2021M00013",
+      "firstName": "MASHUDU",
+      "lastName": "MONYAI",
+      "dateOfMembership": "2021-08-29 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 3314.46129,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 250,
+      "accountContributionsAfterFees": -73.125,
+      "instalmentTokenDetails": [
+        {
+          "tier": "ENTRY",
+          "tokenNumber": "VCC2021ET00006",
+          "instalmentsPaid": 4
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2022M00002",
+      "firstName": "LETLHOGONOLO HAROLD",
+      "lastName": "PHOKELA",
+      "dateOfMembership": "2022-01-03 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 5952.07489,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1000,
+      "accountContributionsAfterFees": -142.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2022ST00002",
+          "instalmentsPaid": 8
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2022M00003",
+      "firstName": "MZWAKHE",
+      "lastName": "DHLAMINI",
+      "dateOfMembership": "2022-01-03 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 7947.72938,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 2,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 562.5,
+      "accountContributionsAfterFees": -215.625,
+      "instalmentTokenDetails": [
+        {
+          "tier": "ENTRY",
+          "tokenNumber": "VCC2023ET00025",
+          "instalmentsPaid": 3
+        },
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2022ST00004",
+          "instalmentsPaid": 3
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2022M00004",
+      "firstName": "MFUNDO",
+      "lastName": "MASONDO",
+      "dateOfMembership": "2022-01-05 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 11946.4108,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 3,
+          "total": 4,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1250,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2022GT00029",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2022M00005",
+      "firstName": "NOMMISELO PRETTY",
+      "lastName": "KHOZA",
+      "dateOfMembership": "2022-01-08 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 2656.901,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1000,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2022GT00032",
+          "instalmentsPaid": 4
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2022M00011",
+      "firstName": "DIPONTSO",
+      "lastName": "MOTEPE",
+      "dateOfMembership": "2022-01-23 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 12603.97109,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 3,
+          "total": 4,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1250,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2022GT00038",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2022M00014",
+      "firstName": "SINESIPO",
+      "lastName": "MAKAULA",
+      "dateOfMembership": "2022-02-02 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 6632.6088,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1250,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2026GT00048",
+          "instalmentsPaid": 5
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2022M00016",
+      "firstName": "THABO",
+      "lastName": "SEGOTA",
+      "dateOfMembership": "2022-04-14 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 4633.26809,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 750,
+      "accountContributionsAfterFees": -142.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2022ST00010",
+          "instalmentsPaid": 6
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2023M00001",
+      "firstName": "ASHLEY",
+      "lastName": "MAREDI",
+      "dateOfMembership": "2023-01-25 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 17958.92269,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 0,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 7500,
+      "accountContributionsAfterFees": -673.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "SILVER",
+          "tokenNumber": "VCC2025ST00006",
+          "instalmentsPaid": 12
+        },
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2023GT00001",
+          "instalmentsPaid": 12
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2025GT00055",
+          "instalmentsPaid": 12
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2023M00002",
+      "firstName": "SHANNON",
+      "lastName": "FORTUIN",
+      "dateOfMembership": "2023-01-28 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 2656.901,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1500,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2023GT00002",
+          "instalmentsPaid": 6
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2024M00001",
+      "firstName": "FEMIDA",
+      "lastName": "RAZAK",
+      "dateOfMembership": "2024-01-24 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 29965.77049,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 3,
+          "total": 3,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1000,
+      "accountContributionsAfterFees": -1020,
+      "instalmentTokenDetails": [
+        {
+          "tier": "PLATINUM",
+          "tokenNumber": "VCC2024PT00010",
+          "instalmentsPaid": 1
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2024M00002",
+      "firstName": "NONTOBEKO",
+      "lastName": "DLAMINI",
+      "dateOfMembership": "2024-04-10 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 7290.16909,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1750,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2024GT00036",
+          "instalmentsPaid": 7
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2024M00003",
+      "firstName": "AMOHELANG",
+      "lastName": "MAFISA",
+      "dateOfMembership": "2024-03-10 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 7290.16909,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 1,
+          "carryOver": 1,
+          "total": 2,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 1750,
+      "accountContributionsAfterFees": -265.5,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2024GT00037",
+          "instalmentsPaid": 7
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2025M00001",
+      "firstName": "MICHAELA",
+      "lastName": "FORTUIN",
+      "dateOfMembership": "2025-01-01 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 657.56029,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 1,
+          "carryOver": 0,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 625,
+      "accountContributionsAfterFees": -73.125,
+      "instalmentTokenDetails": [
+        {
+          "tier": "ENTRY",
+          "tokenNumber": "VCC2025ET00011",
+          "instalmentsPaid": 10
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2025M00002",
+      "firstName": "SHAMEE",
+      "lastName": "FORTUIN",
+      "dateOfMembership": "2025-02-03 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 8628.26329,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 1,
+          "total": 3,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 500,
+      "accountContributionsAfterFees": -531,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2025GT00056",
+          "instalmentsPaid": 1
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2025GT00057",
+          "instalmentsPaid": 1
+        }
+      ]
+    },
+    {
+      "membershipNo": "BWG2025M00003",
+      "firstName": "CRAIG",
+      "lastName": "FORTUIN",
+      "dateOfMembership": "2025-02-03 00:00:00",
+      "monthlyContribution": 0,
+      "accountStatus": "ACTIVE",
+      "accountValue": 8628.26329,
+      "tokens": {
+        "ENTRY": {
+          "instalment": 0,
+          "carryOver": 1,
+          "total": 1,
+          "cashoutPrice": 657.56
+        },
+        "SILVER": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 1318.81
+        },
+        "GOLD": {
+          "instalment": 2,
+          "carryOver": 1,
+          "total": 3,
+          "cashoutPrice": 2656.9
+        },
+        "PLATINUM": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 10668.75
+        },
+        "DIAMOND": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 26773.91
+        },
+        "GROUP_1": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 7993.2
+        },
+        "GROUP_2": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 24070.28
+        },
+        "GROUP_3": {
+          "instalment": 0,
+          "carryOver": 0,
+          "total": 0,
+          "cashoutPrice": 53635.26
+        }
+      },
+      "accountContributions": 0,
+      "accountFees": 2500,
+      "accountContributionsAfterFees": -531,
+      "instalmentTokenDetails": [
+        {
+          "tier": "GOLD",
+          "tokenNumber": "VCC2025GT00058",
+          "instalmentsPaid": 5
+        },
+        {
+          "tier": null,
+          "tokenNumber": "VCC2025GT00059",
+          "instalmentsPaid": 5
+        }
+      ]
+    }
+  ]
+}
