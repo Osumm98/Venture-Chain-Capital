@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef, useActionState } from "react";
+import { useState, useEffect, useRef, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import gsap from "gsap";
-import { loginUser } from "@/actions/auth";
 
 // ---------------------------------------------------------------------------
 // Parallax Background & Meteor Shower
@@ -197,13 +196,38 @@ export function LoginForm(): React.JSX.Element {
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirect") ?? "/dashboard";
 
-  const [state, formAction, isPending] = useActionState(loginUser, {
-    success: false,
-    error: null,
-  });
-
   const [membershipNo, setMembershipNo] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
+    event.preventDefault();
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ membershipNo, password }),
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        setError(result.error ?? "Login failed. Please try again.");
+        setIsLoading(false);
+        return;
+      }
+
+      // Hard redirect to dashboard
+      window.location.assign(redirectTo);
+    } catch {
+      setError("An unexpected error occurred. Please try again.");
+      setIsLoading(false);
+    }
+  }
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 bg-[var(--color-surface-0)] z-0">
@@ -232,8 +256,7 @@ export function LoginForm(): React.JSX.Element {
             Enter your membership number and password
           </p>
 
-          <form action={formAction} className="space-y-6">
-            <input type="hidden" name="redirectTo" value={redirectTo} />
+          <form onSubmit={handleSubmit} className="space-y-6">
             
             {/* Membership Number */}
             <div>
@@ -278,19 +301,19 @@ export function LoginForm(): React.JSX.Element {
             </div>
 
             {/* Error */}
-            {state.error && (
+            {error && (
               <div className="px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm animate-in fade-in slide-in-from-bottom-2 duration-300">
-                {state.error}
+                {error}
               </div>
             )}
 
             {/* Submit */}
             <button
               type="submit"
-              disabled={isPending}
+              disabled={isLoading}
               className="w-full py-3.5 rounded-xl text-sm font-bold uppercase tracking-wider bg-[var(--color-vcc-green)] text-black hover:bg-green-400 focus:ring-4 focus:ring-[var(--color-vcc-green)]/20 hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed mt-4"
             >
-              {isPending ? "Authenticating..." : "Sign In"}
+              {isLoading ? "Authenticating..." : "Sign In"}
             </button>
           </form>
         </div>
