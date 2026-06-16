@@ -121,12 +121,12 @@ export function DashboardSidebar(): React.JSX.Element {
       {/* Logo */}
       <div className="relative px-6 py-10 border-b border-[var(--color-border-dim)] flex items-center justify-center overflow-visible">
         <a href="/" className="flex items-center justify-center w-full" aria-label="Venture Chain Capital">
-          <div className={`relative h-[60px] ${isMobileView ? "w-[180px]" : "w-full"} transition-all duration-300`}>
+          <div className={`relative h-[80px] ${isMobileView ? "w-[240px]" : "w-full"} transition-all duration-300`}>
             <Image
               src="/images/vcc-logo-main.png"
               alt="Venture Chain Capital Logo"
               fill
-              className="object-contain logo-adaptive scale-[2] origin-center"
+              className="object-contain logo-adaptive scale-[3] origin-center"
               priority
             />
           </div>
