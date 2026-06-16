@@ -216,8 +216,8 @@ export function LoginForm(): React.JSX.Element {
         return;
       }
 
-      router.push(redirectTo);
-      router.refresh();
+      // Force a hard navigation to bypass Next.js App Router cache issues
+      window.location.assign(redirectTo);
     } catch {
       setError("An unexpected error occurred. Please try again.");
     } finally {
