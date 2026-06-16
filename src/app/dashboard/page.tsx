@@ -17,7 +17,8 @@ import {
 import { WelcomeHeader } from "@/components/dashboard/welcome-header";
 import { MetricCards } from "@/components/dashboard/metric-cards";
 import { PortfolioChart } from "@/components/dashboard/portfolio-chart";
-import { AllocationDonut } from "@/components/dashboard/allocation-donut";
+import { AllocationDonut, TIER_CONFIG } from "@/components/dashboard/allocation-donut";
+import type { AllocationSlice } from "@/components/dashboard/allocation-donut";
 import { LedgerGrid } from "@/components/dashboard/ledger-grid";
 import { GamificationBadge } from "@/components/dashboard/gamification-badge";
 
@@ -60,6 +61,39 @@ async function GrowthChartSection(): Promise<React.JSX.Element> {
         </p>
       </div>
     );
+  }
+}
+
+async function AllocationSection(): Promise<React.JSX.Element> {
+  try {
+    const tokens = await getActiveTokens();
+
+    // Group tokens by tier and sum their cashout values
+    const tierValues = new Map<string, number>();
+    for (const token of tokens) {
+      const current = tierValues.get(token.tier) ?? 0;
+      tierValues.set(token.tier, current + parseFloat(token.currentCashoutValue));
+    }
+
+    const totalValue = Array.from(tierValues.values()).reduce((sum, v) => sum + v, 0);
+
+    // Build allocation slices, sorted by value descending
+    const slices: AllocationSlice[] = Array.from(tierValues.entries())
+      .map(([tier, value]) => {
+        const config = TIER_CONFIG[tier] ?? { label: `${tier} Tokens`, color: "#888" };
+        const pct = totalValue > 0 ? Math.round((value / totalValue) * 100) : 0;
+        return {
+          name: config.label,
+          value: pct,
+          color: config.color,
+          percentage: pct,
+        };
+      })
+      .sort((a, b) => b.percentage - a.percentage);
+
+    return <AllocationDonut data={slices} />;
+  } catch {
+    return <AllocationDonut data={[]} />;
   }
 }
 
@@ -115,7 +149,9 @@ export default function DashboardPage(): React.JSX.Element {
 
         {/* Allocation Donut takes up 1/3 */}
         <div className="flex flex-col min-h-[350px]">
-          <AllocationDonut />
+          <Suspense fallback={<ChartSkeleton />}>
+            <AllocationSection />
+          </Suspense>
         </div>
       </div>
 
