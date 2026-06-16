@@ -85,7 +85,7 @@ export function NewsCard({ article, index }: NewsCardProps): React.JSX.Element {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group relative block rounded-2xl p-6 bg-[var(--color-surface-1)] border border-[var(--color-border-dim)] transition-all duration-300 overflow-hidden"
+      className="group relative flex flex-col rounded-2xl bg-[var(--color-surface-1)] border border-[var(--color-border-dim)] transition-all duration-300 overflow-hidden h-full"
       style={{
         transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
         boxShadow: isHovering ? `0 20px 40px -10px ${shadowColor}` : "0 4px 20px -10px rgba(0,0,0,0.5)",
@@ -96,7 +96,21 @@ export function NewsCard({ article, index }: NewsCardProps): React.JSX.Element {
         className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-gradient-to-br ${catColor}`}
       />
 
-      <div className="relative z-10 flex flex-col h-full justify-between">
+      {/* Premium Image Thumbnail */}
+      {article.imageUrl && (
+        <div className="relative w-full h-48 overflow-hidden shrink-0">
+          <img 
+            src={article.imageUrl} 
+            alt={article.category}
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            loading="lazy"
+          />
+          {/* Subtle gradient overlay to blend image into the card body */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-1)] via-transparent to-transparent opacity-90" />
+        </div>
+      )}
+
+      <div className="relative z-10 flex flex-col flex-1 justify-between p-6 pt-5">
         <div>
           <div className="flex items-center justify-between mb-4">
             <span className={`text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-md bg-[var(--color-surface-2)] text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors border border-[var(--color-border-dim)]`}>
