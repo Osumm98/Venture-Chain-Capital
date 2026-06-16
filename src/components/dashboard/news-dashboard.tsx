@@ -23,6 +23,12 @@ export function NewsDashboard({ initialArticles }: NewsDashboardProps): React.JS
 
   const categories = ["Crypto", "Stocks", "AI"];
 
+  // Compute article counts per category
+  const articleCounts: Record<string, number> = {};
+  categories.forEach((cat) => {
+    articleCounts[cat] = initialArticles.filter(a => a.category === cat).length;
+  });
+
   // Filter articles based on active category
   const filteredArticles = activeCategory 
     ? initialArticles.filter(a => a.category === activeCategory)
@@ -79,12 +85,13 @@ export function NewsDashboard({ initialArticles }: NewsDashboardProps): React.JS
           </p>
         </div>
 
-        {/* Top Section: Heatmap */}
-        <div className="flex justify-center mb-20 bg-[var(--color-surface-1)]/50 backdrop-blur-md rounded-3xl p-8 border border-[var(--color-border-dim)] shadow-2xl">
+        {/* Top Section: Immersive Heatmap */}
+        <div className="relative flex justify-center mb-20 bg-[var(--color-surface-0)]/80 backdrop-blur-xl rounded-3xl py-12 px-6 border border-[var(--color-border-dim)] shadow-[0_0_60px_-15px_rgba(0,255,136,0.08)]">
           <RadialHeatmap 
             categories={categories} 
             activeCategory={activeCategory} 
-            onSelectCategory={setActiveCategory} 
+            onSelectCategory={setActiveCategory}
+            articleCounts={articleCounts}
           />
         </div>
 
