@@ -167,20 +167,17 @@ export async function getDashboardSummary(): Promise<DashboardSummary> {
   const db = await tryGetPrisma();
 
   if (!db) {
-    // Dev fallback
+    // Dev fallback — uses real data from VCC 2026 Master Spreadsheet
     const devUser = DEMO_ACCOUNTS.find(u => u.membershipNo === session.membershipNo);
-    const userTokens = devUser?.tokens || [];
-    const totalValue = userTokens.reduce(
-      (acc, t) => acc.plus(new Decimal(t.currentCashoutValue)),
-      new Decimal(0)
-    );
+    const userTokens = devUser?.tokens ?? [];
+    const accountValue = devUser?.accountValue ?? "0.00";
     return {
       displayName: session.displayName,
       membershipNo: session.membershipNo,
-      totalAccountValue: totalValue.toFixed(2),
+      totalAccountValue: accountValue,
       totalTokens: userTokens.length,
       activeTiers: [...new Set(userTokens.map((t) => t.tier))],
-      creditBalance: "118.01",
+      creditBalance: "0.00",
     };
   }
 
