@@ -1,15 +1,20 @@
 "use server";
 
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { AuthService } from "@/core/services/auth.service";
-import { signToken, buildAuthCookieHeader, AUTH_COOKIE_NAME } from "@/lib/auth";
+import { signToken, AUTH_COOKIE_NAME } from "@/lib/auth";
 
-export interface LoginActionResult {
+export interface LoginState {
   readonly success: boolean;
-  readonly error?: string;
+  readonly error: string | null;
 }
 
-export async function loginUser(membershipNo: string, password: string): Promise<LoginActionResult> {
+export async function loginUser(prevState: LoginState, formData: FormData): Promise<LoginState> {
+  const membershipNo = formData.get("membershipNo") as string;
+  const password = formData.get("password") as string;
+  const redirectTo = (formData.get("redirectTo") as string) || "/dashboard";
+
   if (!membershipNo || !password) {
     return { success: false, error: "Membership number and password are required." };
   }
@@ -35,9 +40,12 @@ export async function loginUser(membershipNo: string, password: string): Promise
       maxAge: maxAge,
     });
 
-    return { success: true };
   } catch (error) {
     const message = error instanceof Error ? error.message : "Authentication failed.";
     return { success: false, error: message };
   }
+
+  // Redirect must be called outside the try/catch block
+  // because Next.js implements redirect() by throwing a NEXT_REDIRECT error.
+  redirect(redirectTo);
 }

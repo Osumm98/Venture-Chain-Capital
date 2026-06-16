@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, type FormEvent, useEffect, useRef } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useEffect, useRef, useActionState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import gsap from "gsap";
 import { loginUser } from "@/actions/auth";
@@ -194,36 +194,16 @@ function InteractiveBackground() {
 // ---------------------------------------------------------------------------
 
 export function LoginForm(): React.JSX.Element {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirect") ?? "/dashboard";
 
+  const [state, formAction, isPending] = useActionState(loginUser, {
+    success: false,
+    error: null,
+  });
+
   const [membershipNo, setMembershipNo] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
-    event.preventDefault();
-    setError(null);
-    setIsLoading(true);
-
-    try {
-      const result = await loginUser(membershipNo, password);
-
-      if (!result.success) {
-        setError(result.error ?? "Login failed. Please try again.");
-        return;
-      }
-
-      // Force a hard navigation to bypass Next.js App Router cache issues
-      window.location.assign(redirectTo);
-    } catch {
-      setError("An unexpected error occurred. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  }
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 bg-[var(--color-surface-0)] z-0">
@@ -252,7 +232,9 @@ export function LoginForm(): React.JSX.Element {
             Enter your membership number and password
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form action={formAction} className="space-y-6">
+            <input type="hidden" name="redirectTo" value={redirectTo} />
+            
             {/* Membership Number */}
             <div>
               <label
@@ -263,6 +245,7 @@ export function LoginForm(): React.JSX.Element {
               </label>
               <input
                 id="login-membership-no"
+                name="membershipNo"
                 type="text"
                 value={membershipNo}
                 onChange={(event) => setMembershipNo(event.target.value)}
@@ -283,6 +266,7 @@ export function LoginForm(): React.JSX.Element {
               </label>
               <input
                 id="login-password"
+                name="password"
                 type="password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
@@ -294,19 +278,19 @@ export function LoginForm(): React.JSX.Element {
             </div>
 
             {/* Error */}
-            {error && (
+            {state.error && (
               <div className="px-4 py-3 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm animate-in fade-in slide-in-from-bottom-2 duration-300">
-                {error}
+                {state.error}
               </div>
             )}
 
             {/* Submit */}
             <button
               type="submit"
-              disabled={isLoading}
+              disabled={isPending}
               className="w-full py-3.5 rounded-xl text-sm font-bold uppercase tracking-wider bg-[var(--color-vcc-green)] text-black hover:bg-green-400 focus:ring-4 focus:ring-[var(--color-vcc-green)]/20 hover:shadow-[0_0_20px_rgba(0,255,136,0.3)] transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed mt-4"
             >
-              {isLoading ? "Authenticating..." : "Sign In"}
+              {isPending ? "Authenticating..." : "Sign In"}
             </button>
           </form>
         </div>
