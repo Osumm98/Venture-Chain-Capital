@@ -6,7 +6,7 @@
 // All numeric values stored as strings for decimal.js construction.
 // =============================================================================
 
-import type { TokenTier } from "@/generated/prisma";
+import type { TokenTier } from "@prisma/client";
 
 export interface TierConfig {
   readonly tier: TokenTier;

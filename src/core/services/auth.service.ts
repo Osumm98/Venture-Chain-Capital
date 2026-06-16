@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import { DEMO_ACCOUNTS } from "@/lib/demo-data";
-import type { RoleType } from "@/generated/prisma";
+import type { RoleType } from "@prisma/client";
 
 export interface NormalizedUser {
   readonly userId: string;

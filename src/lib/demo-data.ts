@@ -1,4 +1,4 @@
-import { RoleType } from "@/generated/prisma";
+import { RoleType } from "@prisma/client";
 import type { TokenCardData } from "@/actions/dashboard";
 
 export interface DemoAccount {

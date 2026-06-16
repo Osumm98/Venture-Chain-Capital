@@ -14,7 +14,7 @@
 //      Database persistence is the caller's responsibility.
 // =============================================================================
 
-import type { TokenTier } from "@/generated/prisma";
+import type { TokenTier } from "@prisma/client";
 import {
   Decimal,
   toDecimal,

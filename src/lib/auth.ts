@@ -6,7 +6,7 @@
 // =============================================================================
 
 import { SignJWT, jwtVerify, type JWTPayload } from "jose";
-import type { RoleType } from "@/generated/prisma";
+import type { RoleType } from "@prisma/client";
 
 // ---------------------------------------------------------------------------
 // Configuration

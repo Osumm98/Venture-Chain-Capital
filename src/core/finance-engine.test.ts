@@ -17,7 +17,7 @@
 // =============================================================================
 
 import { describe, it, expect } from "vitest";
-import type { TokenTier } from "@/generated/prisma";
+import type { TokenTier } from "@prisma/client";
 import {
   calculatePenalty,
   calculateAdminFee,

@@ -6,7 +6,7 @@
 // globalThis to survive hot-reloads.
 // =============================================================================
 
-import { PrismaClient } from "@/generated/prisma";
+import { PrismaClient } from "@prisma/client";
 
 const globalForPrisma = globalThis as typeof globalThis & {
   prisma: PrismaClient | undefined;
