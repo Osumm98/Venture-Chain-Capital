@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "Packages", href: "#token-packages" },
   { label: "Portfolios", href: "#portfolios" },
   { label: "How It Works", href: "#how-it-works" },
+  { label: "About", href: "#about" },
 ] as const;
 
 export function Header(): React.JSX.Element {
@@ -157,7 +158,7 @@ export function Header(): React.JSX.Element {
         {/* Menu Panel */}
         <div
           className={`
-            absolute top-0 right-0 w-[280px] h-full bg-[var(--color-surface-0)] border-l border-[var(--color-border-dim)]
+            absolute top-0 right-0 w-[280px] h-[100dvh] overflow-y-auto bg-[var(--color-surface-0)] border-l border-[var(--color-border-dim)]
             flex flex-col transition-transform duration-300 ease-out shadow-2xl
             ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}
           `}
@@ -192,7 +193,7 @@ export function Header(): React.JSX.Element {
           </nav>
 
           {/* Bottom CTA */}
-          <div className="p-5 border-t border-[var(--color-border-dim)] space-y-3">
+          <div className="p-5 border-t border-[var(--color-border-dim)] space-y-3 mt-auto shrink-0">
             <a
               href="/login"
               onClick={closeMobileMenu}
