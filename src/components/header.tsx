@@ -85,136 +85,131 @@ export function Header(): React.JSX.Element {
           </div>
 
           {/* Desktop Navigation */}
-          {!isMobileView && (
-            <nav className="hidden md:flex items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-200 font-medium"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-          )}
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-200 font-medium"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
           {/* Right Side Controls */}
           <div className="flex-1 flex items-center justify-end gap-3 md:gap-5">
             <ThemeToggle />
 
-            {isMobileView ? (
-              /* Hamburger Button */
-              <button
-                type="button"
-                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-                className="p-2 rounded-xl text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface-2)] transition-colors duration-200 cursor-pointer"
+            {/* Hamburger Button (Mobile Only) */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              className="md:hidden p-2 rounded-xl text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface-2)] transition-colors duration-200 cursor-pointer"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
+
+            {/* Desktop CTA buttons */}
+            <div className="hidden md:flex items-center gap-3 md:gap-5">
+              <a
+                href="/login"
+                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-200 font-medium"
               >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </button>
-            ) : (
-              /* Desktop CTA buttons */
-              <>
-                <a
-                  href="/login"
-                  className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-200 font-medium hidden sm:block"
-                >
-                  Sign In
-                </a>
-                <a
-                  href="/login"
-                  className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-[var(--color-vcc-green)] text-[var(--color-surface-0)] hover:shadow-[0_0_20px_rgba(0,255,136,0.25)] transition-all duration-200 cursor-pointer"
-                >
-                  Get Started
-                </a>
-              </>
-            )}
+                Sign In
+              </a>
+              <a
+                href="/login"
+                className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-[var(--color-vcc-green)] text-[var(--color-surface-0)] hover:shadow-[0_0_20px_rgba(0,255,136,0.25)] transition-all duration-200 cursor-pointer"
+              >
+                Get Started
+              </a>
+            </div>
           </div>
         </div>
       </header>
 
       {/* Mobile Menu Overlay */}
-      {isMobileView && (
+      <div
+        className={`
+          md:hidden fixed inset-0 z-[45] transition-all duration-300 ease-out
+          ${isMobileMenuOpen ? "visible" : "invisible pointer-events-none"}
+        `}
+      >
+        {/* Backdrop */}
+        <div
+          className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
+            isMobileMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={closeMobileMenu}
+          onKeyDown={(e) => e.key === "Escape" && closeMobileMenu()}
+          role="button"
+          tabIndex={0}
+          aria-label="Close menu"
+        />
+
+        {/* Menu Panel */}
         <div
           className={`
-            fixed inset-0 z-[45] transition-all duration-300 ease-out
-            ${isMobileMenuOpen ? "visible" : "invisible pointer-events-none"}
+            absolute top-0 right-0 w-[280px] h-full bg-[var(--color-surface-0)] border-l border-[var(--color-border-dim)]
+            flex flex-col transition-transform duration-300 ease-out shadow-2xl
+            ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}
           `}
         >
-          {/* Backdrop */}
-          <div
-            className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${
-              isMobileMenuOpen ? "opacity-100" : "opacity-0"
-            }`}
-            onClick={closeMobileMenu}
-            onKeyDown={(e) => e.key === "Escape" && closeMobileMenu()}
-            role="button"
-            tabIndex={0}
-            aria-label="Close menu"
-          />
+          {/* Menu Header */}
+          <div className="flex items-center justify-between p-5 border-b border-[var(--color-border-dim)] mt-16">
+            <span className="text-sm font-semibold text-[var(--color-text-primary)] uppercase tracking-wider">
+              Menu
+            </span>
+            <button
+              type="button"
+              onClick={closeMobileMenu}
+              aria-label="Close menu"
+              className="p-2 rounded-xl text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface-2)] transition-colors duration-200 cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-          {/* Menu Panel */}
-          <div
-            className={`
-              absolute top-0 right-0 w-[280px] h-full bg-[var(--color-surface-0)] border-l border-[var(--color-border-dim)]
-              flex flex-col transition-transform duration-300 ease-out shadow-2xl
-              ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}
-            `}
-          >
-            {/* Menu Header */}
-            <div className="flex items-center justify-between p-5 border-b border-[var(--color-border-dim)]">
-              <span className="text-sm font-semibold text-[var(--color-text-primary)] uppercase tracking-wider">
-                Menu
-              </span>
-              <button
-                type="button"
-                onClick={closeMobileMenu}
-                aria-label="Close menu"
-                className="p-2 rounded-xl text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface-2)] transition-colors duration-200 cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Nav Links */}
-            <nav className="flex-1 p-5 space-y-1">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={closeMobileMenu}
-                  className="block px-4 py-3.5 rounded-xl text-base font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface-2)] transition-all duration-200"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-
-            {/* Bottom CTA */}
-            <div className="p-5 border-t border-[var(--color-border-dim)] space-y-3">
+          {/* Nav Links */}
+          <nav className="flex-1 p-5 space-y-1">
+            {NAV_LINKS.map((link) => (
               <a
-                href="/login"
+                key={link.label}
+                href={link.href}
                 onClick={closeMobileMenu}
-                className="block w-full text-center py-3.5 rounded-xl text-sm font-semibold bg-[var(--color-vcc-green)] text-[var(--color-surface-0)] hover:shadow-[0_0_20px_rgba(0,255,136,0.25)] transition-all duration-200 cursor-pointer"
+                className="block px-4 py-3.5 rounded-xl text-base font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:bg-[var(--color-surface-2)] transition-all duration-200"
               >
-                Get Started
+                {link.label}
               </a>
-              <a
-                href="/login"
-                onClick={closeMobileMenu}
-                className="block w-full text-center py-3 rounded-xl text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)] transition-all duration-200"
-              >
-                Sign In
-              </a>
-            </div>
+            ))}
+          </nav>
+
+          {/* Bottom CTA */}
+          <div className="p-5 border-t border-[var(--color-border-dim)] space-y-3">
+            <a
+              href="/login"
+              onClick={closeMobileMenu}
+              className="block w-full text-center py-3.5 rounded-xl text-sm font-semibold bg-[var(--color-vcc-green)] text-[var(--color-surface-0)] hover:shadow-[0_0_20px_rgba(0,255,136,0.25)] transition-all duration-200 cursor-pointer"
+            >
+              Get Started
+            </a>
+            <a
+              href="/login"
+              onClick={closeMobileMenu}
+              className="block w-full text-center py-3 rounded-xl text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] border border-[var(--color-border-subtle)] hover:border-[var(--color-border-accent)] transition-all duration-200 cursor-pointer"
+            >
+              Sign In
+            </a>
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 }
